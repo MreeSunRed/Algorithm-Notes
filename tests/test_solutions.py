@@ -164,6 +164,81 @@ def test_intersection_returns_first_node():
     assert result.val == 1
 
 
+# -------------------------------------------------------------- 4. 有效的括号
+
+def test_valid_parentheses_basic():
+    Solution = _load("valid_parentheses", "有效的括号.py").Solution
+    assert Solution().isValid("()") is True
+    assert Solution().isValid("()[]{}") is True
+
+
+def test_valid_parentheses_nested():
+    Solution = _load("valid_parentheses", "有效的括号.py").Solution
+    assert Solution().isValid("{[]}") is True
+    assert Solution().isValid("([{}])") is True
+
+
+def test_valid_parentheses_wrong_type():
+    """左右括号数量对，但类型不匹配。"""
+    Solution = _load("valid_parentheses", "有效的括号.py").Solution
+    assert Solution().isValid("(]") is False
+    assert Solution().isValid("(}") is False
+
+
+def test_valid_parentheses_wrong_order():
+    """数量完全相等，但闭包顺序非法 —— 只数个数会误判。"""
+    Solution = _load("valid_parentheses", "有效的括号.py").Solution
+    assert Solution().isValid("([)]") is False
+    assert Solution().isValid("){") is False
+
+
+def test_valid_parentheses_unclosed():
+    """只有左括号，扫描结束时栈不为空。"""
+    Solution = _load("valid_parentheses", "有效的括号.py").Solution
+    assert Solution().isValid("(") is False
+    assert Solution().isValid("(((") is False
+    assert Solution().isValid("(()") is False
+
+
+def test_valid_parentheses_extra_closing():
+    """栈空时遇到右括号，不能越界取栈顶。"""
+    Solution = _load("valid_parentheses", "有效的括号.py").Solution
+    assert Solution().isValid(")") is False
+    assert Solution().isValid("]") is False
+    assert Solution().isValid("())") is False
+
+
+# ------------------------------------------------------ 5. 买卖股票的最佳时机
+
+def test_max_profit_classic():
+    Solution = _load("max_profit", "买卖股票的最佳时机.py").Solution
+    assert Solution().maxProfit([7, 1, 5, 3, 6, 4]) == 5
+
+
+def test_max_profit_all_declining():
+    """一路下跌 —— 不能交易，必须返回 0 而不是负数。"""
+    Solution = _load("max_profit", "买卖股票的最佳时机.py").Solution
+    assert Solution().maxProfit([7, 6, 4, 3, 1]) == 0
+
+
+def test_max_profit_single():
+    Solution = _load("max_profit", "买卖股票的最佳时机.py").Solution
+    assert Solution().maxProfit([1]) == 0
+    assert Solution().maxProfit([5]) == 0
+
+
+def test_max_profit_min_after_best_sell():
+    """最低价出现在最优卖出日之后，不能被提前使用。"""
+    Solution = _load("max_profit", "买卖股票的最佳时机.py").Solution
+    assert Solution().maxProfit([2, 4, 1]) == 2
+
+
+def test_max_profit_late_min():
+    Solution = _load("max_profit", "买卖股票的最佳时机.py").Solution
+    assert Solution().maxProfit([3, 2, 6, 5, 0, 3]) == 4
+    assert Solution().maxProfit([1, 2]) == 1
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():

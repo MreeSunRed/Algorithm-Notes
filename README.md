@@ -11,6 +11,8 @@
 | 1 | [两数之和](https://leetcode.cn/problems/two-sum/) | 简单 | 哈希表 · 空间换时间 | [📝](notes/01-两数之和.md) | [🐍](solutions/两数之和.py) |
 | 2 | [最大子数组和](https://leetcode.cn/problems/maximum-subarray/) | 中等 | 动态规划 · Kadane 算法 | [📝](notes/02-最大子数组和.md) | [🐍](solutions/最大子数组和.py) |
 | 3 | [相交链表](https://leetcode.cn/problems/intersection-of-two-linked-lists/) | 简单 | 链表 · 哈希集合 / 双指针 | [📝](notes/03-相交链表.md) | [🐍](solutions/相交链表.py) |
+| 4 | [有效的括号](https://leetcode.cn/problems/valid-parentheses/) | 简单 | 字符串 · 栈 | [📝](notes/04-有效的括号.md) | [🐍](solutions/有效的括号.py) |
+| 5 | [买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) | 简单 | 数组 · 动态规划 | [📝](notes/05-买卖股票的最佳时机.md) | [🐍](solutions/买卖股票的最佳时机.py) |
 
 ## 目录结构
 
@@ -20,11 +22,15 @@ Algorithm-Notes/
 ├── notes/               # 每道题一篇笔记（思路 + 复杂度 + 易错点）
 │   ├── 01-两数之和.md
 │   ├── 02-最大子数组和.md
-│   └── 03-相交链表.md
+│   ├── 03-相交链表.md
+│   ├── 04-有效的括号.md
+│   └── 05-买卖股票的最佳时机.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
-│   └── 相交链表.py
+│   ├── 相交链表.py
+│   ├── 有效的括号.py
+│   └── 买卖股票的最佳时机.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```
