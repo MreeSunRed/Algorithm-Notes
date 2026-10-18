@@ -10,6 +10,7 @@
 import importlib.util
 import os
 import sys
+from collections import deque
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SOLUTIONS_DIR = os.path.join(ROOT, "solutions")
@@ -54,6 +55,36 @@ def append_to(head, node):
         cur = cur.next
     cur.next = node
     return head
+
+
+class TreeNode(object):
+    """与 LeetCode 定义一致的二叉树节点。"""
+
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
+def make_tree(values):
+    """按 LeetCode 的层序数组（None 表示空位）构造二叉树，返回根节点。"""
+    if not values or values[0] is None:
+        return None
+
+    root = TreeNode(values[0])
+    queue = deque([root])
+    i = 1
+    while queue and i < len(values):
+        node = queue.popleft()
+        if i < len(values) and values[i] is not None:
+            node.left = TreeNode(values[i])
+            queue.append(node.left)
+        i += 1
+        if i < len(values) and values[i] is not None:
+            node.right = TreeNode(values[i])
+            queue.append(node.right)
+        i += 1
+    return root
 
 
 # ---------------------------------------------------------------- 1. 两数之和
@@ -237,6 +268,78 @@ def test_max_profit_late_min():
     Solution = _load("max_profit", "买卖股票的最佳时机.py").Solution
     assert Solution().maxProfit([3, 2, 6, 5, 0, 3]) == 4
     assert Solution().maxProfit([1, 2]) == 1
+
+
+# -------------------------------------------------- 6. 二叉树的中序遍历
+
+def test_inorder_classic():
+    Solution = _load("inorder_traversal", "二叉树的中序遍历.py").Solution
+    assert Solution().inorderTraversal(make_tree([1, None, 2, 3])) == [1, 3, 2]
+
+
+def test_inorder_empty():
+    Solution = _load("inorder_traversal", "二叉树的中序遍历.py").Solution
+    assert Solution().inorderTraversal(None) == []
+
+
+def test_inorder_single():
+    Solution = _load("inorder_traversal", "二叉树的中序遍历.py").Solution
+    assert Solution().inorderTraversal(make_tree([1])) == [1]
+
+
+def test_inorder_balanced():
+    Solution = _load("inorder_traversal", "二叉树的中序遍历.py").Solution
+    assert Solution().inorderTraversal(make_tree([2, 1, 3])) == [1, 2, 3]
+
+
+def test_inorder_bst_sorted():
+    """BST 的中序遍历必须严格递增。"""
+    Solution = _load("inorder_traversal", "二叉树的中序遍历.py").Solution
+    root = make_tree([3, 1, None, None, 2])
+    assert Solution().inorderTraversal(root) == [1, 2, 3]
+
+
+def test_inorder_with_negative():
+    Solution = _load("inorder_traversal", "二叉树的中序遍历.py").Solution
+    root = make_tree([-1, -2, -3])
+    assert Solution().inorderTraversal(root) == [-2, -1, -3]
+
+
+# ---------------------------------------------------- 7. 二叉树的最大深度
+
+def test_max_depth_classic():
+    Solution = _load("max_depth", "二叉树的最大深度.py").Solution
+    root = make_tree([3, 9, 20, None, None, 15, 7])
+    assert Solution().maxDepth(root) == 3
+
+
+def test_max_depth_empty():
+    Solution = _load("max_depth", "二叉树的最大深度.py").Solution
+    assert Solution().maxDepth(None) == 0
+
+
+def test_max_depth_single():
+    """深度按节点数算：单节点树为 1，不是 0。"""
+    Solution = _load("max_depth", "二叉树的最大深度.py").Solution
+    assert Solution().maxDepth(make_tree([1])) == 1
+
+
+def test_max_depth_left_child_only():
+    Solution = _load("max_depth", "二叉树的最大深度.py").Solution
+    assert Solution().maxDepth(make_tree([1, 2])) == 2
+
+
+def test_max_depth_right_chain():
+    """只有右孩子的退化链。"""
+    Solution = _load("max_depth", "二叉树的最大深度.py").Solution
+    root = make_tree([1, None, 2, None, 3])
+    assert Solution().maxDepth(root) == 3
+
+
+def test_max_depth_unbalanced():
+    Solution = _load("max_depth", "二叉树的最大深度.py").Solution
+    root = make_tree([1, 2, 3, 4, None, None, None, 5])
+    assert Solution().maxDepth(root) == 4
 
 
 # ------------------------------------------------------------------ 运行入口
