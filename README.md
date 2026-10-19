@@ -15,6 +15,7 @@
 | 5 | [买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/) | 简单 | 数组 · 动态规划 | [📝](notes/05-买卖股票的最佳时机.md) | [🐍](solutions/买卖股票的最佳时机.py) |
 | 6 | [二叉树的中序遍历](https://leetcode.cn/problems/binary-tree-inorder-traversal/) | 简单 | 树 · 递归 / 显式栈 | [📝](notes/06-二叉树的中序遍历.md) | [🐍](solutions/二叉树的中序遍历.py) |
 | 7 | [二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/) | 简单 | 树 · DFS / BFS | [📝](notes/07-二叉树的最大深度.md) | [🐍](solutions/二叉树的最大深度.py) |
+| 8 | [合并区间](https://leetcode.cn/problems/merge-intervals/) | 中等 | 数组 · 排序 | [📝](notes/08-合并区间.md) | [🐍](solutions/合并区间.py) |
 
 ## 目录结构
 
@@ -28,7 +29,8 @@ Algorithm-Notes/
 │   ├── 04-有效的括号.md
 │   ├── 05-买卖股票的最佳时机.md
 │   ├── 06-二叉树的中序遍历.md
-│   └── 07-二叉树的最大深度.md
+│   ├── 07-二叉树的最大深度.md
+│   └── 08-合并区间.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -36,7 +38,8 @@ Algorithm-Notes/
 │   ├── 有效的括号.py
 │   ├── 买卖股票的最佳时机.py
 │   ├── 二叉树的中序遍历.py
-│   └── 二叉树的最大深度.py
+│   ├── 二叉树的最大深度.py
+│   └── 合并区间.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```

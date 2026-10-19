@@ -342,6 +342,50 @@ def test_max_depth_unbalanced():
     assert Solution().maxDepth(root) == 4
 
 
+# ---------------------------------------------------------------- 8. 合并区间
+
+def test_merge_classic():
+    Solution = _load("merge_intervals", "合并区间.py").Solution
+    intervals = [[1, 3], [2, 6], [8, 10], [15, 18]]
+    assert Solution().merge(intervals) == [[1, 6], [8, 10], [15, 18]]
+
+
+def test_merge_touching():
+    """端点相接也算重叠：[1,4] 与 [4,5] 合并为 [1,5]。"""
+    Solution = _load("merge_intervals", "合并区间.py").Solution
+    assert Solution().merge([[1, 4], [4, 5]]) == [[1, 5]]
+
+
+def test_merge_contained():
+    """完全包含：end 必须取 max，不能缩水成 [1,3]。"""
+    Solution = _load("merge_intervals", "合并区间.py").Solution
+    assert Solution().merge([[1, 4], [2, 3]]) == [[1, 4]]
+    assert Solution().merge([[1, 10], [2, 3], [4, 5]]) == [[1, 10]]
+
+
+def test_merge_unsorted():
+    Solution = _load("merge_intervals", "合并区间.py").Solution
+    assert Solution().merge([[1, 4], [0, 4]]) == [[0, 4]]
+    assert Solution().merge([[2, 6], [1, 3]]) == [[1, 6]]
+
+
+def test_merge_no_overlap():
+    Solution = _load("merge_intervals", "合并区间.py").Solution
+    assert Solution().merge([[1, 4], [5, 6]]) == [[1, 4], [5, 6]]
+    assert Solution().merge([[1, 2]]) == [[1, 2]]
+
+
+def test_merge_empty():
+    Solution = _load("merge_intervals", "合并区间.py").Solution
+    assert Solution().merge([]) == []
+
+
+def test_merge_many_into_one():
+    Solution = _load("merge_intervals", "合并区间.py").Solution
+    intervals = [[1, 10], [2, 3], [4, 5], [6, 7]]
+    assert Solution().merge(intervals) == [[1, 10]]
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
