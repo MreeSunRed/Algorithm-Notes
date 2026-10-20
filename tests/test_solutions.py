@@ -444,6 +444,12 @@ def test_palindrome_single():
     assert Solution().isPalindrome(make_list([1])) is True
 
 
+def test_palindrome_empty():
+    """LeetCode 保证至少一个节点；空链表按回文处理，实现天然兼容。"""
+    Solution = _load("palindrome_list", "回文链表.py").Solution
+    assert Solution().isPalindrome(None) is True
+
+
 def test_palindrome_two_nodes():
     Solution = _load("palindrome_list", "回文链表.py").Solution
     assert Solution().isPalindrome(make_list([1, 2])) is False

@@ -10,13 +10,28 @@ class Solution(object):
         :type head: Optional[ListNode]
         :rtype: bool
         """
-        nums = []
-        while head != None:
-            nums.append(head.val)
-            head = head.next
-        for i, val in enumerate(nums):
-            if val != nums[-1 * (i + 1)]:
+        nums = 0
+        hnode = head
+        while hnode != None:
+            hnode = hnode.next
+            nums+=1
+        i=0
+        midnode = head
+        while i< nums/2:
+            midnode = midnode.next
+            i+=1
+        tailA = None
+        while midnode != None:
+            p = midnode
+            midnode = midnode.next
+            p.next = tailA
+            tailA = p
+        midnode=tailA
+        while midnode != None:
+            if midnode.val != head.val:
                 return False
-            if i >= len(nums) / 2:
-                return True
+            midnode=midnode.next
+            head=head.next
         return True
+            
+
