@@ -57,6 +57,15 @@ def append_to(head, node):
     return head
 
 
+def list_values(head):
+    """把链表节点值摊平成 Python 列表，便于断言。"""
+    values = []
+    while head:
+        values.append(head.val)
+        head = head.next
+    return values
+
+
 class TreeNode(object):
     """与 LeetCode 定义一致的二叉树节点。"""
 
@@ -384,6 +393,72 @@ def test_merge_many_into_one():
     Solution = _load("merge_intervals", "合并区间.py").Solution
     intervals = [[1, 10], [2, 3], [4, 5], [6, 7]]
     assert Solution().merge(intervals) == [[1, 10]]
+
+
+# ---------------------------------------------------------------- 9. 反转链表
+
+def test_reverse_empty():
+    Solution = _load("reverse_list", "反转链表.py").Solution
+    assert Solution().reverseList(None) is None
+
+
+def test_reverse_single():
+    Solution = _load("reverse_list", "反转链表.py").Solution
+    result = Solution().reverseList(make_list([1]))
+    assert list_values(result) == [1]
+
+
+def test_reverse_two():
+    Solution = _load("reverse_list", "反转链表.py").Solution
+    result = Solution().reverseList(make_list([1, 2]))
+    assert list_values(result) == [2, 1]
+
+
+def test_reverse_multiple():
+    Solution = _load("reverse_list", "反转链表.py").Solution
+    result = Solution().reverseList(make_list([1, 2, 3, 4, 5]))
+    assert list_values(result) == [5, 4, 3, 2, 1]
+
+
+def test_reverse_duplicates():
+    """值重复也要按节点顺序反转，不能按值去重。"""
+    Solution = _load("reverse_list", "反转链表.py").Solution
+    result = Solution().reverseList(make_list([1, 1, 2, 1]))
+    assert list_values(result) == [1, 2, 1, 1]
+
+
+# -------------------------------------------------------------- 10. 回文链表
+
+def test_palindrome_even():
+    Solution = _load("palindrome_list", "回文链表.py").Solution
+    assert Solution().isPalindrome(make_list([1, 2, 2, 1])) is True
+
+
+def test_palindrome_odd():
+    Solution = _load("palindrome_list", "回文链表.py").Solution
+    assert Solution().isPalindrome(make_list([1, 2, 3, 2, 1])) is True
+
+
+def test_palindrome_single():
+    Solution = _load("palindrome_list", "回文链表.py").Solution
+    assert Solution().isPalindrome(make_list([1])) is True
+
+
+def test_palindrome_two_nodes():
+    Solution = _load("palindrome_list", "回文链表.py").Solution
+    assert Solution().isPalindrome(make_list([1, 2])) is False
+    assert Solution().isPalindrome(make_list([1, 1])) is True
+
+
+def test_palindrome_broken_mirror():
+    Solution = _load("palindrome_list", "回文链表.py").Solution
+    assert Solution().isPalindrome(make_list([1, 1, 2, 1])) is False
+    assert Solution().isPalindrome(make_list([1, 2, 1, 1])) is False
+
+
+def test_palindrome_with_negative():
+    Solution = _load("palindrome_list", "回文链表.py").Solution
+    assert Solution().isPalindrome(make_list([-1, 0, -1])) is True
 
 
 # ------------------------------------------------------------------ 运行入口

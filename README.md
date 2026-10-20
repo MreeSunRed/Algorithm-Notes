@@ -16,6 +16,8 @@
 | 6 | [二叉树的中序遍历](https://leetcode.cn/problems/binary-tree-inorder-traversal/) | 简单 | 树 · 递归 / 显式栈 | [📝](notes/06-二叉树的中序遍历.md) | [🐍](solutions/二叉树的中序遍历.py) |
 | 7 | [二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/) | 简单 | 树 · DFS / BFS | [📝](notes/07-二叉树的最大深度.md) | [🐍](solutions/二叉树的最大深度.py) |
 | 8 | [合并区间](https://leetcode.cn/problems/merge-intervals/) | 中等 | 数组 · 排序 | [📝](notes/08-合并区间.md) | [🐍](solutions/合并区间.py) |
+| 9 | [反转链表](https://leetcode.cn/problems/reverse-linked-list/) | 简单 | 链表 · 双指针 / 递归 | [📝](notes/09-反转链表.md) | [🐍](solutions/反转链表.py) |
+| 10 | [回文链表](https://leetcode.cn/problems/palindrome-linked-list/) | 简单 | 链表 · 快慢指针 / 反转 | [📝](notes/10-回文链表.md) | [🐍](solutions/回文链表.py) |
 
 ## 目录结构
 
@@ -30,7 +32,9 @@ Algorithm-Notes/
 │   ├── 05-买卖股票的最佳时机.md
 │   ├── 06-二叉树的中序遍历.md
 │   ├── 07-二叉树的最大深度.md
-│   └── 08-合并区间.md
+│   ├── 08-合并区间.md
+│   ├── 09-反转链表.md
+│   └── 10-回文链表.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -39,7 +43,9 @@ Algorithm-Notes/
 │   ├── 买卖股票的最佳时机.py
 │   ├── 二叉树的中序遍历.py
 │   ├── 二叉树的最大深度.py
-│   └── 合并区间.py
+│   ├── 合并区间.py
+│   ├── 反转链表.py
+│   └── 回文链表.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```
