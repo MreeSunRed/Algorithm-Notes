@@ -467,6 +467,40 @@ def test_palindrome_with_negative():
     assert Solution().isPalindrome(make_list([-1, 0, -1])) is True
 
 
+# -------------------------------------------------------------- 11. 字符串解码
+
+def test_decode_basic():
+    Solution = _load("decode_string", "字符串解码.py").Solution
+    assert Solution().decodeString("3[a]2[bc]") == "aaabcbc"
+    assert Solution().decodeString("3[a]") == "aaa"
+
+
+def test_decode_nested():
+    Solution = _load("decode_string", "字符串解码.py").Solution
+    assert Solution().decodeString("3[a2[c]]") == "accaccacc"
+    assert Solution().decodeString("2[3[a]]") == "aaaaaa"
+
+
+def test_decode_mixed_with_plain_chars():
+    Solution = _load("decode_string", "字符串解码.py").Solution
+    assert Solution().decodeString("2[abc]3[cd]ef") == "abcabccdcdcdef"
+    assert Solution().decodeString("abc3[cd]xyz") == "abccdcdcdxyz"
+
+
+def test_decode_multi_digit():
+    """重复次数可能是多位数，不能只取一位。"""
+    Solution = _load("decode_string", "字符串解码.py").Solution
+    assert Solution().decodeString("10[a]") == "a" * 10
+    assert Solution().decodeString("2[10[b]]") == "b" * 20
+
+
+def test_decode_plain_text():
+    Solution = _load("decode_string", "字符串解码.py").Solution
+    assert Solution().decodeString("") == ""
+    assert Solution().decodeString("a") == "a"
+    assert Solution().decodeString("abc") == "abc"
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():

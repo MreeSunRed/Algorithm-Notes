@@ -18,6 +18,7 @@
 | 8 | [合并区间](https://leetcode.cn/problems/merge-intervals/) | 中等 | 数组 · 排序 | [📝](notes/08-合并区间.md) | [🐍](solutions/合并区间.py) |
 | 9 | [反转链表](https://leetcode.cn/problems/reverse-linked-list/) | 简单 | 链表 · 双指针 / 递归 | [📝](notes/09-反转链表.md) | [🐍](solutions/反转链表.py) |
 | 10 | [回文链表](https://leetcode.cn/problems/palindrome-linked-list/) | 简单 | 链表 · 快慢指针 / 反转 | [📝](notes/10-回文链表.md) | [🐍](solutions/回文链表.py) |
+| 11 | [字符串解码](https://leetcode.cn/problems/decode-string/) | 中等 | 字符串 · 栈 / 递归 | [📝](notes/11-字符串解码.md) | [🐍](solutions/字符串解码.py) |
 
 ## 目录结构
 
@@ -34,7 +35,8 @@ Algorithm-Notes/
 │   ├── 07-二叉树的最大深度.md
 │   ├── 08-合并区间.md
 │   ├── 09-反转链表.md
-│   └── 10-回文链表.md
+│   ├── 10-回文链表.md
+│   └── 11-字符串解码.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -45,7 +47,8 @@ Algorithm-Notes/
 │   ├── 二叉树的最大深度.py
 │   ├── 合并区间.py
 │   ├── 反转链表.py
-│   └── 回文链表.py
+│   ├── 回文链表.py
+│   └── 字符串解码.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```
