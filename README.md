@@ -19,6 +19,8 @@
 | 9 | [反转链表](https://leetcode.cn/problems/reverse-linked-list/) | 简单 | 链表 · 双指针 / 递归 | [📝](notes/09-反转链表.md) | [🐍](solutions/反转链表.py) |
 | 10 | [回文链表](https://leetcode.cn/problems/palindrome-linked-list/) | 简单 | 链表 · 快慢指针 / 反转 | [📝](notes/10-回文链表.md) | [🐍](solutions/回文链表.py) |
 | 11 | [字符串解码](https://leetcode.cn/problems/decode-string/) | 中等 | 字符串 · 栈 / 递归 | [📝](notes/11-字符串解码.md) | [🐍](solutions/字符串解码.py) |
+| 12 | [反转二叉树](https://leetcode.cn/problems/invert-binary-tree/) | 简单 | 树 · 递归 / BFS | [📝](notes/12-反转二叉树.md) | [🐍](solutions/反转二叉树.py) |
+| 13 | [对称二叉树](https://leetcode.cn/problems/symmetric-tree/) | 简单 | 树 · 递归 / 镜像比较 | [📝](notes/13-对称二叉树.md) | [🐍](solutions/对称二叉树.py) |
 
 ## 目录结构
 
@@ -36,7 +38,9 @@ Algorithm-Notes/
 │   ├── 08-合并区间.md
 │   ├── 09-反转链表.md
 │   ├── 10-回文链表.md
-│   └── 11-字符串解码.md
+│   ├── 11-字符串解码.md
+│   ├── 12-反转二叉树.md
+│   └── 13-对称二叉树.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -48,7 +52,9 @@ Algorithm-Notes/
 │   ├── 合并区间.py
 │   ├── 反转链表.py
 │   ├── 回文链表.py
-│   └── 字符串解码.py
+│   ├── 字符串解码.py
+│   ├── 反转二叉树.py
+│   └── 对称二叉树.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```

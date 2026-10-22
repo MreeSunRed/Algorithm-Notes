@@ -66,6 +66,25 @@ def list_values(head):
     return values
 
 
+def level_order(root):
+    """按 LeetCode 层序格式输出二叉树，去掉末尾的空位。"""
+    if root is None:
+        return []
+    result = []
+    queue = deque([root])
+    while queue:
+        node = queue.popleft()
+        if node is None:
+            result.append(None)
+            continue
+        result.append(node.val)
+        queue.append(node.left)
+        queue.append(node.right)
+    while result and result[-1] is None:
+        result.pop()
+    return result
+
+
 class TreeNode(object):
     """与 LeetCode 定义一致的二叉树节点。"""
 
@@ -499,6 +518,76 @@ def test_decode_plain_text():
     assert Solution().decodeString("") == ""
     assert Solution().decodeString("a") == "a"
     assert Solution().decodeString("abc") == "abc"
+
+
+# -------------------------------------------------------------- 12. 反转二叉树
+
+def test_invert_classic():
+    Solution = _load("invert_tree", "反转二叉树.py").Solution
+    result = Solution().invertTree(make_tree([4, 2, 7, 1, 3, 6, 9]))
+    assert level_order(result) == [4, 7, 2, 9, 6, 3, 1]
+
+
+def test_invert_empty():
+    Solution = _load("invert_tree", "反转二叉树.py").Solution
+    assert Solution().invertTree(None) is None
+
+
+def test_invert_single():
+    Solution = _load("invert_tree", "反转二叉树.py").Solution
+    result = Solution().invertTree(make_tree([1]))
+    assert level_order(result) == [1]
+
+
+def test_invert_single_child():
+    """只有一个孩子时，翻转会把孩子换到另一侧。"""
+    Solution = _load("invert_tree", "反转二叉树.py").Solution
+    left_only = Solution().invertTree(make_tree([1, 2]))
+    assert level_order(left_only) == [1, None, 2]
+
+    right_only = Solution().invertTree(make_tree([1, None, 2]))
+    assert level_order(right_only) == [1, 2]
+
+
+def test_invert_twice_restores():
+    Solution = _load("invert_tree", "反转二叉树.py").Solution
+    root = make_tree([4, 2, 7, 1, 3, 6, 9])
+    solution = Solution()
+    solution.invertTree(root)
+    solution.invertTree(root)
+    assert level_order(root) == [4, 2, 7, 1, 3, 6, 9]
+
+
+# -------------------------------------------------------------- 13. 对称二叉树
+
+def test_symmetric_classic():
+    Solution = _load("symmetric_tree", "对称二叉树.py").Solution
+    assert Solution().isSymmetric(make_tree([1, 2, 2, 3, 4, 4, 3])) is True
+
+
+def test_symmetric_wrong_structure():
+    """值相同但左右的结构不对应，必须交叉比较。"""
+    Solution = _load("symmetric_tree", "对称二叉树.py").Solution
+    assert Solution().isSymmetric(make_tree([1, 2, 2, None, 3, None, 3])) is False
+
+
+def test_symmetric_empty_and_single():
+    Solution = _load("symmetric_tree", "对称二叉树.py").Solution
+    assert Solution().isSymmetric(None) is True
+    assert Solution().isSymmetric(make_tree([1])) is True
+
+
+def test_symmetric_simple():
+    Solution = _load("symmetric_tree", "对称二叉树.py").Solution
+    assert Solution().isSymmetric(make_tree([1, 2, 2])) is True
+    assert Solution().isSymmetric(make_tree([1, 2, 3])) is False
+
+
+def test_symmetric_inorder_palindrome_not_enough():
+    """中序遍历是回文但结构不对称 —— 不能只比较中序序列。"""
+    Solution = _load("symmetric_tree", "对称二叉树.py").Solution
+    root = make_tree([1, 2, 2, 2, None, 2])
+    assert Solution().isSymmetric(root) is False
 
 
 # ------------------------------------------------------------------ 运行入口
