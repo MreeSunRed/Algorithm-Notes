@@ -7,7 +7,7 @@ class Solution(object):
         :rtype: None Do not return anything, modify nums in-place instead.
         """
         q = deque(nums)
-        for i in range(k):
+        for i in range(k%len(nums)):
             t = q.pop()
 
             q.appendleft(t)
