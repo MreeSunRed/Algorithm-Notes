@@ -590,6 +590,65 @@ def test_symmetric_inorder_palindrome_not_enough():
     assert Solution().isSymmetric(root) is False
 
 
+# ---------------------------------------------------------------- 14. 轮转数组
+
+def test_rotate_classic():
+    Solution = _load("rotate_array", "轮转数组.py").Solution
+    nums = [1, 2, 3, 4, 5, 6, 7]
+    result = Solution().rotate(nums, 3)
+    assert nums == [5, 6, 7, 1, 2, 3, 4]
+    assert result is None
+
+
+def test_rotate_with_negative():
+    Solution = _load("rotate_array", "轮转数组.py").Solution
+    nums = [-1, -100, 3, 99]
+    Solution().rotate(nums, 2)
+    assert nums == [3, 99, -1, -100]
+
+
+def test_rotate_single():
+    Solution = _load("rotate_array", "轮转数组.py").Solution
+    nums = [1]
+    Solution().rotate(nums, 0)
+    assert nums == [1]
+
+    nums = [1]
+    Solution().rotate(nums, 5)
+    assert nums == [1]
+
+
+def test_rotate_k_greater_than_length():
+    """k 大于 n 时等价于转 k % n 次。"""
+    Solution = _load("rotate_array", "轮转数组.py").Solution
+    nums = [1, 2]
+    Solution().rotate(nums, 3)
+    assert nums == [2, 1]
+
+    nums = [1, 2, 3]
+    Solution().rotate(nums, 5)
+    assert nums == [2, 3, 1]
+
+
+def test_rotate_k_multiple_of_length():
+    """k 是 n 的整数倍，数组应保持不变。"""
+    Solution = _load("rotate_array", "轮转数组.py").Solution
+    nums = [1, 2, 3, 4]
+    Solution().rotate(nums, 4)
+    assert nums == [1, 2, 3, 4]
+
+    nums = [1, 2, 3, 4]
+    Solution().rotate(nums, 8)
+    assert nums == [1, 2, 3, 4]
+
+
+def test_rotate_zero():
+    Solution = _load("rotate_array", "轮转数组.py").Solution
+    nums = [1, 2, 3]
+    Solution().rotate(nums, 0)
+    assert nums == [1, 2, 3]
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
