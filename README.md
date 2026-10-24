@@ -22,6 +22,8 @@
 | 12 | [反转二叉树](https://leetcode.cn/problems/invert-binary-tree/) | 简单 | 树 · 递归 / BFS | [📝](notes/12-反转二叉树.md) | [🐍](solutions/反转二叉树.py) |
 | 13 | [对称二叉树](https://leetcode.cn/problems/symmetric-tree/) | 简单 | 树 · 递归 / 镜像比较 | [📝](notes/13-对称二叉树.md) | [🐍](solutions/对称二叉树.py) |
 | 14 | [轮转数组](https://leetcode.cn/problems/rotate-array/) | 中等 | 数组 · 反转 / 原地操作 | [📝](notes/14-轮转数组.md) | [🐍](solutions/轮转数组.py) |
+| 15 | [字母异位词分组](https://leetcode.cn/problems/group-anagrams/) | 中等 | 字符串 · 哈希表 / 排序 | [📝](notes/15-字母异位词分组.md) | [🐍](solutions/字母异位词分组.py) |
+| 16 | [环形链表](https://leetcode.cn/problems/linked-list-cycle/) | 简单 | 链表 · 哈希表 / 快慢指针 | [📝](notes/16-环形链表.md) | [🐍](solutions/环形链表.py) |
 
 ## 目录结构
 
@@ -42,7 +44,9 @@ Algorithm-Notes/
 │   ├── 11-字符串解码.md
 │   ├── 12-反转二叉树.md
 │   ├── 13-对称二叉树.md
-│   └── 14-轮转数组.md
+│   ├── 14-轮转数组.md
+│   ├── 15-字母异位词分组.md
+│   └── 16-环形链表.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -57,7 +61,9 @@ Algorithm-Notes/
 │   ├── 字符串解码.py
 │   ├── 反转二叉树.py
 │   ├── 对称二叉树.py
-│   └── 轮转数组.py
+│   ├── 轮转数组.py
+│   ├── 字母异位词分组.py
+│   └── 环形链表.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```

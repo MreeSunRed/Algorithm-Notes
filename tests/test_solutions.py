@@ -85,6 +85,25 @@ def level_order(root):
     return result
 
 
+def make_cycle(values, pos):
+    """按 pos 把链表尾接到指定下标，构造带环链表；pos < 0 表示无环。"""
+    head = make_list(values)
+    if pos < 0 or head is None:
+        return head
+    nodes = []
+    cur = head
+    while cur:
+        nodes.append(cur)
+        cur = cur.next
+    nodes[-1].next = nodes[pos]
+    return head
+
+
+def normalize_groups(groups):
+    """把分组结果归一化，忽略组间顺序与组内顺序。"""
+    return sorted(sorted(group) for group in groups)
+
+
 class TreeNode(object):
     """与 LeetCode 定义一致的二叉树节点。"""
 
@@ -647,6 +666,87 @@ def test_rotate_zero():
     nums = [1, 2, 3]
     Solution().rotate(nums, 0)
     assert nums == [1, 2, 3]
+
+
+# --------------------------------------------------------- 15. 字母异位词分组
+
+def test_group_anagrams_classic():
+    Solution = _load("group_anagrams", "字母异位词分组.py").Solution
+    groups = Solution().groupAnagrams(
+        ["eat", "tea", "tan", "ate", "nat", "bat"]
+    )
+    assert normalize_groups(groups) == [
+        ["ate", "eat", "tea"],
+        ["bat"],
+        ["nat", "tan"],
+    ]
+
+
+def test_group_anagrams_empty_input():
+    Solution = _load("group_anagrams", "字母异位词分组.py").Solution
+    assert Solution().groupAnagrams([]) == []
+
+
+def test_group_anagrams_empty_string():
+    Solution = _load("group_anagrams", "字母异位词分组.py").Solution
+    assert Solution().groupAnagrams([""]) == [[""]]
+
+
+def test_group_anagrams_single():
+    Solution = _load("group_anagrams", "字母异位词分组.py").Solution
+    assert Solution().groupAnagrams(["a"]) == [["a"]]
+
+
+def test_group_anagrams_multiple_groups():
+    Solution = _load("group_anagrams", "字母异位词分组.py").Solution
+    groups = Solution().groupAnagrams(["abc", "bca", "cab", "xyz"])
+    assert normalize_groups(groups) == [
+        ["abc", "bca", "cab"],
+        ["xyz"],
+    ]
+
+
+def test_group_anagrams_do_not_merge_different_counts():
+    """字母种类不同，即使长度相同也不能合并。"""
+    Solution = _load("group_anagrams", "字母异位词分组.py").Solution
+    groups = Solution().groupAnagrams(["ddddddddddg", "dgggggggggg"])
+    assert normalize_groups(groups) == [
+        ["ddddddddddg"],
+        ["dgggggggggg"],
+    ]
+
+
+# ---------------------------------------------------------------- 16. 环形链表
+
+def test_cycle_empty():
+    Solution = _load("linked_list_cycle", "环形链表.py").Solution
+    assert Solution().hasCycle(None) is False
+
+
+def test_cycle_single_no_cycle():
+    Solution = _load("linked_list_cycle", "环形链表.py").Solution
+    assert Solution().hasCycle(make_cycle([1], -1)) is False
+
+
+def test_cycle_single_self_loop():
+    Solution = _load("linked_list_cycle", "环形链表.py").Solution
+    assert Solution().hasCycle(make_cycle([1], 0)) is True
+
+
+def test_cycle_classic():
+    Solution = _load("linked_list_cycle", "环形链表.py").Solution
+    assert Solution().hasCycle(make_cycle([3, 2, 0, -4], 1)) is True
+
+
+def test_cycle_no_cycle():
+    Solution = _load("linked_list_cycle", "环形链表.py").Solution
+    assert Solution().hasCycle(make_cycle([1, 2, 3], -1)) is False
+
+
+def test_cycle_duplicate_values_without_cycle():
+    """值重复但节点不重复，不能按 val 判环。"""
+    Solution = _load("linked_list_cycle", "环形链表.py").Solution
+    assert Solution().hasCycle(make_cycle([1, 1], -1)) is False
 
 
 # ------------------------------------------------------------------ 运行入口
