@@ -24,6 +24,7 @@
 | 14 | [轮转数组](https://leetcode.cn/problems/rotate-array/) | 中等 | 数组 · 反转 / 原地操作 | [📝](notes/14-轮转数组.md) | [🐍](solutions/轮转数组.py) |
 | 15 | [字母异位词分组](https://leetcode.cn/problems/group-anagrams/) | 中等 | 字符串 · 哈希表 / 排序 | [📝](notes/15-字母异位词分组.md) | [🐍](solutions/字母异位词分组.py) |
 | 16 | [环形链表](https://leetcode.cn/problems/linked-list-cycle/) | 简单 | 链表 · 哈希表 / 快慢指针 | [📝](notes/16-环形链表.md) | [🐍](solutions/环形链表.py) |
+| 17 | [最小栈](https://leetcode.cn/problems/min-stack/) | 中等 | 栈 · 设计 / 辅助栈 | [📝](notes/17-最小栈.md) | [🐍](solutions/最小栈.py) |
 
 ## 目录结构
 
@@ -46,7 +47,8 @@ Algorithm-Notes/
 │   ├── 13-对称二叉树.md
 │   ├── 14-轮转数组.md
 │   ├── 15-字母异位词分组.md
-│   └── 16-环形链表.md
+│   ├── 16-环形链表.md
+│   └── 17-最小栈.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -63,7 +65,8 @@ Algorithm-Notes/
 │   ├── 对称二叉树.py
 │   ├── 轮转数组.py
 │   ├── 字母异位词分组.py
-│   └── 环形链表.py
+│   ├── 环形链表.py
+│   └── 最小栈.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```

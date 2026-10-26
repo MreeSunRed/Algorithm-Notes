@@ -749,6 +749,67 @@ def test_cycle_duplicate_values_without_cycle():
     assert Solution().hasCycle(make_cycle([1, 1], -1)) is False
 
 
+# ---------------------------------------------------------------- 17. 最小栈
+
+def test_min_stack_classic():
+    MinStack = _load("min_stack", "最小栈.py").MinStack
+    stack = MinStack()
+    stack.push(-2)
+    stack.push(0)
+    stack.push(-3)
+    assert stack.getMin() == -3
+    assert stack.pop() is None
+    assert stack.top() == 0
+    assert stack.getMin() == -2
+
+
+def test_min_stack_single():
+    MinStack = _load("min_stack", "最小栈.py").MinStack
+    stack = MinStack()
+    stack.push(5)
+    assert stack.top() == 5
+    assert stack.getMin() == 5
+    assert stack.pop() is None
+
+
+def test_min_stack_duplicates():
+    """重复最小值：弹出一个后，getMin 仍应正确。"""
+    MinStack = _load("min_stack", "最小栈.py").MinStack
+    stack = MinStack()
+    stack.push(0)
+    stack.push(0)
+    assert stack.getMin() == 0
+    stack.pop()
+    assert stack.top() == 0
+    assert stack.getMin() == 0
+
+
+def test_min_stack_negative():
+    MinStack = _load("min_stack", "最小栈.py").MinStack
+    stack = MinStack()
+    stack.push(-1)
+    stack.push(-2)
+    stack.push(-3)
+    assert stack.getMin() == -3
+    stack.pop()
+    assert stack.getMin() == -2
+    stack.pop()
+    assert stack.getMin() == -1
+
+
+def test_min_stack_push_larger():
+    """压入更大的值不改变当前最小值。"""
+    MinStack = _load("min_stack", "最小栈.py").MinStack
+    stack = MinStack()
+    stack.push(2)
+    stack.push(3)
+    assert stack.top() == 3
+    assert stack.getMin() == 2
+    stack.pop()
+    assert stack.top() == 2
+    assert stack.getMin() == 2
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
