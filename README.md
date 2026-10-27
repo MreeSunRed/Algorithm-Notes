@@ -25,6 +25,8 @@
 | 15 | [字母异位词分组](https://leetcode.cn/problems/group-anagrams/) | 中等 | 字符串 · 哈希表 / 排序 | [📝](notes/15-字母异位词分组.md) | [🐍](solutions/字母异位词分组.py) |
 | 16 | [环形链表](https://leetcode.cn/problems/linked-list-cycle/) | 简单 | 链表 · 哈希表 / 快慢指针 | [📝](notes/16-环形链表.md) | [🐍](solutions/环形链表.py) |
 | 17 | [最小栈](https://leetcode.cn/problems/min-stack/) | 中等 | 栈 · 设计 / 辅助栈 | [📝](notes/17-最小栈.md) | [🐍](solutions/最小栈.py) |
+| 18 | [二叉树的直径](https://leetcode.cn/problems/diameter-of-binary-tree/) | 简单 | 树 · 后序遍历 | [📝](notes/18-二叉树的直径.md) | [🐍](solutions/二叉树的直径.py) |
+| 19 | [将有序数组转换为二叉搜索树](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/) | 简单 | 树 · 分治 / 二叉搜索树 | [📝](notes/19-将有序数组转换为二叉搜索树.md) | [🐍](solutions/将有序数组转换为二叉搜索树.py) |
 
 ## 目录结构
 
@@ -48,7 +50,9 @@ Algorithm-Notes/
 │   ├── 14-轮转数组.md
 │   ├── 15-字母异位词分组.md
 │   ├── 16-环形链表.md
-│   └── 17-最小栈.md
+│   ├── 17-最小栈.md
+│   ├── 18-二叉树的直径.md
+│   └── 19-将有序数组转换为二叉搜索树.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -66,7 +70,9 @@ Algorithm-Notes/
 │   ├── 轮转数组.py
 │   ├── 字母异位词分组.py
 │   ├── 环形链表.py
-│   └── 最小栈.py
+│   ├── 最小栈.py
+│   ├── 二叉树的直径.py
+│   └── 将有序数组转换为二叉搜索树.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```

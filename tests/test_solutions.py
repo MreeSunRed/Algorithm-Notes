@@ -104,6 +104,29 @@ def normalize_groups(groups):
     return sorted(sorted(group) for group in groups)
 
 
+def inorder_values(root):
+    """返回二叉树的中序遍历值序列。"""
+    if root is None:
+        return []
+    return inorder_values(root.left) + [root.val] + inorder_values(root.right)
+
+
+def tree_height(root):
+    """返回二叉树的高度（按节点数计）。"""
+    if root is None:
+        return 0
+    return 1 + max(tree_height(root.left), tree_height(root.right))
+
+
+def is_balanced(root):
+    """判断二叉树是否高度平衡。"""
+    if root is None:
+        return True
+    return (abs(tree_height(root.left) - tree_height(root.right)) <= 1
+            and is_balanced(root.left)
+            and is_balanced(root.right))
+
+
 class TreeNode(object):
     """与 LeetCode 定义一致的二叉树节点。"""
 
@@ -808,6 +831,80 @@ def test_min_stack_push_larger():
     stack.pop()
     assert stack.top() == 2
     assert stack.getMin() == 2
+
+
+# ---------------------------------------------------------- 18. 二叉树的直径
+
+def test_diameter_single():
+    Solution = _load("tree_diameter", "二叉树的直径.py").Solution
+    assert Solution().diameterOfBinaryTree(make_tree([1])) == 0
+
+
+def test_diameter_two_nodes():
+    Solution = _load("tree_diameter", "二叉树的直径.py").Solution
+    assert Solution().diameterOfBinaryTree(make_tree([1, 2])) == 1
+
+
+def test_diameter_three_nodes():
+    Solution = _load("tree_diameter", "二叉树的直径.py").Solution
+    assert Solution().diameterOfBinaryTree(make_tree([1, 2, 3])) == 2
+
+
+def test_diameter_classic():
+    Solution = _load("tree_diameter", "二叉树的直径.py").Solution
+    root = make_tree([1, 2, 3, 4, 5])
+    assert Solution().diameterOfBinaryTree(root) == 3
+
+
+def test_diameter_skewed():
+    """退化成链：直径就是链上的边数。"""
+    Solution = _load("tree_diameter", "二叉树的直径.py").Solution
+    root = make_tree([1, 2, None, 3, None, 4])
+    assert Solution().diameterOfBinaryTree(root) == 3
+
+
+# -------------------------------------- 19. 将有序数组转换为二叉搜索树
+
+def test_sorted_array_empty():
+    Solution = _load("sorted_array_to_bst",
+                     "将有序数组转换为二叉搜索树.py").Solution
+    assert Solution().sortedArrayToBST([]) is None
+
+
+def test_sorted_array_single():
+    Solution = _load("sorted_array_to_bst",
+                     "将有序数组转换为二叉搜索树.py").Solution
+    root = Solution().sortedArrayToBST([1])
+    assert inorder_values(root) == [1]
+    assert tree_height(root) == 1
+
+
+def test_sorted_array_classic():
+    """结果不唯一：验证中序序列与平衡性，而不是固定形状。"""
+    Solution = _load("sorted_array_to_bst",
+                     "将有序数组转换为二叉搜索树.py").Solution
+    nums = [-10, -3, 0, 5, 9]
+    root = Solution().sortedArrayToBST(nums)
+    assert inorder_values(root) == nums
+    assert is_balanced(root) is True
+
+
+def test_sorted_array_perfect():
+    Solution = _load("sorted_array_to_bst",
+                     "将有序数组转换为二叉搜索树.py").Solution
+    nums = [1, 2, 3, 4, 5, 6, 7]
+    root = Solution().sortedArrayToBST(nums)
+    assert inorder_values(root) == nums
+    assert is_balanced(root) is True
+    assert tree_height(root) == 3
+
+
+def test_sorted_array_even_length():
+    Solution = _load("sorted_array_to_bst",
+                     "将有序数组转换为二叉搜索树.py").Solution
+    root = Solution().sortedArrayToBST([1, 2])
+    assert inorder_values(root) == [1, 2]
+    assert is_balanced(root) is True
 
 
 # ------------------------------------------------------------------ 运行入口
