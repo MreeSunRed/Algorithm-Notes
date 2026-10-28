@@ -907,6 +907,85 @@ def test_sorted_array_even_length():
     assert is_balanced(root) is True
 
 
+# ---------------------------------------------- 20. 无重复字符的最长子串
+
+def test_longest_substring_classic():
+    Solution = _load("longest_substring",
+                     "无重复字符的最长子串.py").Solution
+    assert Solution().lengthOfLongestSubstring("abcabcbb") == 3
+
+
+def test_longest_substring_all_same():
+    Solution = _load("longest_substring",
+                     "无重复字符的最长子串.py").Solution
+    assert Solution().lengthOfLongestSubstring("bbbbb") == 1
+
+
+def test_longest_substring_subsequence_trap():
+    """最长的是子串 "wke"，不是子序列 "pwke"。"""
+    Solution = _load("longest_substring",
+                     "无重复字符的最长子串.py").Solution
+    assert Solution().lengthOfLongestSubstring("pwwkew") == 3
+
+
+def test_longest_substring_empty_and_space():
+    Solution = _load("longest_substring",
+                     "无重复字符的最长子串.py").Solution
+    assert Solution().lengthOfLongestSubstring("") == 0
+    assert Solution().lengthOfLongestSubstring(" ") == 1
+
+
+def test_longest_substring_left_never_moves_back():
+    """abba：最后一次出现的 a 已在窗口外，left 不能回退。"""
+    Solution = _load("longest_substring",
+                     "无重复字符的最长子串.py").Solution
+    assert Solution().lengthOfLongestSubstring("abba") == 2
+
+
+def test_longest_substring_stale_last_occurrence():
+    Solution = _load("longest_substring",
+                     "无重复字符的最长子串.py").Solution
+    assert Solution().lengthOfLongestSubstring("tmmzuxt") == 5
+
+
+# ------------------------------------------ 21. 除了自身以外数组的乘积
+
+def test_product_except_self_classic():
+    Solution = _load("product_except_self",
+                     "除了自身以外数组的乘积.py").Solution
+    assert Solution().productExceptSelf([1, 2, 3, 4]) == [24, 12, 8, 6]
+
+
+def test_product_except_self_with_zero():
+    Solution = _load("product_except_self",
+                     "除了自身以外数组的乘积.py").Solution
+    assert Solution().productExceptSelf([-1, 1, 0, -3, 3]) == [0, 0, 9, 0, 0]
+
+
+def test_product_except_self_multiple_zeros():
+    Solution = _load("product_except_self",
+                     "除了自身以外数组的乘积.py").Solution
+    assert Solution().productExceptSelf([0, 0]) == [0, 0]
+
+
+def test_product_except_self_two_elements():
+    Solution = _load("product_except_self",
+                     "除了自身以外数组的乘积.py").Solution
+    assert Solution().productExceptSelf([2, 3]) == [3, 2]
+
+
+def test_product_except_self_single_element():
+    Solution = _load("product_except_self",
+                     "除了自身以外数组的乘积.py").Solution
+    assert Solution().productExceptSelf([5]) == [1]
+
+
+def test_product_except_self_negative():
+    Solution = _load("product_except_self",
+                     "除了自身以外数组的乘积.py").Solution
+    assert Solution().productExceptSelf([-2, -3, 4]) == [-12, -8, 6]
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
