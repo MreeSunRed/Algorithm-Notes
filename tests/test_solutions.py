@@ -104,6 +104,14 @@ def normalize_groups(groups):
     return sorted(sorted(group) for group in groups)
 
 
+def node_at(head, index):
+    """返回从 head 起第 index 个节点（0 基）。"""
+    cur = head
+    for _ in range(index):
+        cur = cur.next
+    return cur
+
+
 def inorder_values(root):
     """返回二叉树的中序遍历值序列。"""
     if root is None:
@@ -984,6 +992,50 @@ def test_product_except_self_negative():
     Solution = _load("product_except_self",
                      "除了自身以外数组的乘积.py").Solution
     assert Solution().productExceptSelf([-2, -3, 4]) == [-12, -8, 6]
+
+
+# ------------------------------------------------------------ 22. 环形链表 II
+
+def test_cycle_entry_empty():
+    Solution = _load("cycle_entry", "环形链表 II.py").Solution
+    assert Solution().detectCycle(None) is None
+
+
+def test_cycle_entry_single_no_cycle():
+    Solution = _load("cycle_entry", "环形链表 II.py").Solution
+    assert Solution().detectCycle(make_cycle([1], -1)) is None
+
+
+def test_cycle_entry_single_self_loop():
+    Solution = _load("cycle_entry", "环形链表 II.py").Solution
+    head = make_cycle([1], 0)
+    assert Solution().detectCycle(head) is head
+
+
+def test_cycle_entry_classic():
+    Solution = _load("cycle_entry", "环形链表 II.py").Solution
+    head = make_cycle([3, 2, 0, -4], 1)
+    expected = node_at(head, 1)
+    assert Solution().detectCycle(head) is expected
+
+
+def test_cycle_entry_at_head():
+    Solution = _load("cycle_entry", "环形链表 II.py").Solution
+    head = make_cycle([1, 2, 3], 0)
+    assert Solution().detectCycle(head) is head
+
+
+def test_cycle_entry_at_tail():
+    Solution = _load("cycle_entry", "环形链表 II.py").Solution
+    head = make_cycle([1, 2, 3, 4], 3)
+    expected = node_at(head, 3)
+    assert Solution().detectCycle(head) is expected
+
+
+def test_cycle_entry_duplicate_values_without_cycle():
+    """值重复但无环，不能按 val 判环。"""
+    Solution = _load("cycle_entry", "环形链表 II.py").Solution
+    assert Solution().detectCycle(make_cycle([1, 1, 2], -1)) is None
 
 
 # ------------------------------------------------------------------ 运行入口

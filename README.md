@@ -29,6 +29,7 @@
 | 19 | [将有序数组转换为二叉搜索树](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/) | 简单 | 树 · 分治 / 二叉搜索树 | [📝](notes/19-将有序数组转换为二叉搜索树.md) | [🐍](solutions/将有序数组转换为二叉搜索树.py) |
 | 20 | [无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) | 中等 | 字符串 · 滑动窗口 / 哈希表 | [📝](notes/20-无重复字符的最长子串.md) | [🐍](solutions/无重复字符的最长子串.py) |
 | 21 | [除了自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self/) | 中等 | 数组 · 前缀积 / 后缀积 | [📝](notes/21-除了自身以外数组的乘积.md) | [🐍](solutions/除了自身以外数组的乘积.py) |
+| 22 | [环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/) | 中等 | 链表 · 快慢指针 / 数学 | [📝](notes/22-环形链表%20II.md) | [🐍](solutions/环形链表%20II.py) |
 
 ## 目录结构
 
@@ -56,7 +57,8 @@ Algorithm-Notes/
 │   ├── 18-二叉树的直径.md
 │   ├── 19-将有序数组转换为二叉搜索树.md
 │   ├── 20-无重复字符的最长子串.md
-│   └── 21-除了自身以外数组的乘积.md
+│   ├── 21-除了自身以外数组的乘积.md
+│   └── 22-环形链表 II.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -78,7 +80,8 @@ Algorithm-Notes/
 │   ├── 二叉树的直径.py
 │   ├── 将有序数组转换为二叉搜索树.py
 │   ├── 无重复字符的最长子串.py
-│   └── 除了自身以外数组的乘积.py
+│   ├── 除了自身以外数组的乘积.py
+│   └── 环形链表 II.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```
