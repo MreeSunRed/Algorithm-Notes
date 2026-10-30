@@ -1038,6 +1038,41 @@ def test_cycle_entry_duplicate_values_without_cycle():
     assert Solution().detectCycle(make_cycle([1, 1, 2], -1)) is None
 
 
+# ---------------------------------------------------------------- 23. 每日温度
+
+def test_daily_temperatures_classic():
+    Solution = _load("daily_temperatures", "每日温度.py").Solution
+    temperatures = [73, 74, 75, 71, 69, 72, 76, 73]
+    assert Solution().dailyTemperatures(temperatures) == [1, 1, 4, 2, 1, 1, 0, 0]
+
+
+def test_daily_temperatures_increasing():
+    Solution = _load("daily_temperatures", "每日温度.py").Solution
+    assert Solution().dailyTemperatures([30, 40, 50, 60]) == [1, 1, 1, 0]
+
+
+def test_daily_temperatures_decreasing():
+    Solution = _load("daily_temperatures", "每日温度.py").Solution
+    assert Solution().dailyTemperatures([90, 60, 30]) == [0, 0, 0]
+
+
+def test_daily_temperatures_equal():
+    """温度相等不算「更高」。"""
+    Solution = _load("daily_temperatures", "每日温度.py").Solution
+    assert Solution().dailyTemperatures([73, 73, 73]) == [0, 0, 0]
+
+
+def test_daily_temperatures_single():
+    Solution = _load("daily_temperatures", "每日温度.py").Solution
+    assert Solution().dailyTemperatures([1]) == [0]
+
+
+def test_daily_temperatures_multiple_pops():
+    """一天的高温要连续解答多个历史日子。"""
+    Solution = _load("daily_temperatures", "每日温度.py").Solution
+    assert Solution().dailyTemperatures([70, 60, 50, 80]) == [3, 2, 1, 0]
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
