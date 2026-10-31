@@ -1073,6 +1073,42 @@ def test_daily_temperatures_multiple_pops():
     assert Solution().dailyTemperatures([70, 60, 50, 80]) == [3, 2, 1, 0]
 
 
+# ------------------------------------------------------ 24. 二叉树的层序遍历
+
+def test_level_order_classic():
+    Solution = _load("level_order", "二叉树的层序遍历.py").Solution
+    root = make_tree([3, 9, 20, None, None, 15, 7])
+    assert Solution().levelOrder(root) == [[3], [9, 20], [15, 7]]
+
+
+def test_level_order_empty():
+    Solution = _load("level_order", "二叉树的层序遍历.py").Solution
+    assert Solution().levelOrder(None) == []
+
+
+def test_level_order_single():
+    Solution = _load("level_order", "二叉树的层序遍历.py").Solution
+    assert Solution().levelOrder(make_tree([1])) == [[1]]
+
+
+def test_level_order_asymmetric():
+    Solution = _load("level_order", "二叉树的层序遍历.py").Solution
+    root = make_tree([1, 2, 3, 4, None, None, 5])
+    assert Solution().levelOrder(root) == [[1], [2, 3], [4, 5]]
+
+
+def test_level_order_left_chain():
+    Solution = _load("level_order", "二叉树的层序遍历.py").Solution
+    root = make_tree([1, 2, None, 3])
+    assert Solution().levelOrder(root) == [[1], [2], [3]]
+
+
+def test_level_order_right_chain():
+    Solution = _load("level_order", "二叉树的层序遍历.py").Solution
+    root = make_tree([1, None, 2, None, 3])
+    assert Solution().levelOrder(root) == [[1], [2], [3]]
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
