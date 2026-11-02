@@ -32,6 +32,7 @@
 | 22 | [环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/) | 中等 | 链表 · 快慢指针 / 数学 | [📝](notes/22-环形链表%20II.md) | [🐍](solutions/环形链表%20II.py) |
 | 23 | [每日温度](https://leetcode.cn/problems/daily-temperatures/) | 中等 | 数组 · 单调栈 | [📝](notes/23-每日温度.md) | [🐍](solutions/每日温度.py) |
 | 24 | [二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/) | 中等 | 树 · 广度优先搜索 | [📝](notes/24-二叉树的层序遍历.md) | [🐍](solutions/二叉树的层序遍历.py) |
+| 25 | [缺失的第一个正数](https://leetcode.cn/problems/first-missing-positive/) | 困难 | 数组 · 原地哈希 | [📝](notes/25-缺失的第一个正数.md) | [🐍](solutions/缺失的第一个正数.py) |
 
 ## 目录结构
 
@@ -62,7 +63,8 @@ Algorithm-Notes/
 │   ├── 21-除了自身以外数组的乘积.md
 │   ├── 22-环形链表 II.md
 │   ├── 23-每日温度.md
-│   └── 24-二叉树的层序遍历.md
+│   ├── 24-二叉树的层序遍历.md
+│   └── 25-缺失的第一个正数.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -87,7 +89,8 @@ Algorithm-Notes/
 │   ├── 除了自身以外数组的乘积.py
 │   ├── 环形链表 II.py
 │   ├── 每日温度.py
-│   └── 二叉树的层序遍历.py
+│   ├── 二叉树的层序遍历.py
+│   └── 缺失的第一个正数.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```

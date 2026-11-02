@@ -1109,6 +1109,67 @@ def test_level_order_right_chain():
     assert Solution().levelOrder(root) == [[1], [2], [3]]
 
 
+# ------------------------------------------------------ 25. 缺失的第一个正数
+
+def test_first_missing_positive_classic():
+    Solution = _load("first_missing_positive",
+                     "缺失的第一个正数.py").Solution
+    assert Solution().firstMissingPositive([1, 2, 0]) == 3
+
+
+def test_first_missing_positive_with_negative():
+    Solution = _load("first_missing_positive",
+                     "缺失的第一个正数.py").Solution
+    assert Solution().firstMissingPositive([3, 4, -1, 1]) == 2
+
+
+def test_first_missing_positive_all_large():
+    Solution = _load("first_missing_positive",
+                     "缺失的第一个正数.py").Solution
+    assert Solution().firstMissingPositive([7, 8, 9, 11, 12]) == 1
+
+
+def test_first_missing_positive_single():
+    Solution = _load("first_missing_positive",
+                     "缺失的第一个正数.py").Solution
+    assert Solution().firstMissingPositive([1]) == 2
+    assert Solution().firstMissingPositive([2]) == 1
+
+
+def test_first_missing_positive_duplicates():
+    """重复值不能让 res 卡住或重复计算。"""
+    Solution = _load("first_missing_positive",
+                     "缺失的第一个正数.py").Solution
+    assert Solution().firstMissingPositive([1, 1]) == 2
+
+
+def test_first_missing_positive_full_prefix():
+    """1..n 全部出现，答案是 n + 1。"""
+    Solution = _load("first_missing_positive",
+                     "缺失的第一个正数.py").Solution
+    assert Solution().firstMissingPositive([1, 2, 3]) == 4
+    assert Solution().firstMissingPositive([1, 2, 3, 4]) == 5
+
+
+def test_first_missing_positive_all_non_positive():
+    Solution = _load("first_missing_positive",
+                     "缺失的第一个正数.py").Solution
+    assert Solution().firstMissingPositive([-1, -2]) == 1
+
+
+def test_first_missing_positive_unsorted():
+    Solution = _load("first_missing_positive",
+                     "缺失的第一个正数.py").Solution
+    assert Solution().firstMissingPositive([2, 1]) == 3
+
+
+def test_first_missing_positive_empty():
+    """题目约束 n >= 1；空数组按缺失 1 处理。"""
+    Solution = _load("first_missing_positive",
+                     "缺失的第一个正数.py").Solution
+    assert Solution().firstMissingPositive([]) == 1
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
