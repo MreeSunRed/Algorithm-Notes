@@ -33,6 +33,8 @@
 | 23 | [每日温度](https://leetcode.cn/problems/daily-temperatures/) | 中等 | 数组 · 单调栈 | [📝](notes/23-每日温度.md) | [🐍](solutions/每日温度.py) |
 | 24 | [二叉树的层序遍历](https://leetcode.cn/problems/binary-tree-level-order-traversal/) | 中等 | 树 · 广度优先搜索 | [📝](notes/24-二叉树的层序遍历.md) | [🐍](solutions/二叉树的层序遍历.py) |
 | 25 | [缺失的第一个正数](https://leetcode.cn/problems/first-missing-positive/) | 困难 | 数组 · 原地哈希 | [📝](notes/25-缺失的第一个正数.md) | [🐍](solutions/缺失的第一个正数.py) |
+| 26 | [两数相加](https://leetcode.cn/problems/add-two-numbers/) | 中等 | 链表 · 递归 / 进位 | [📝](notes/26-两数相加.md) | [🐍](solutions/两数相加.py) |
+| 27 | [合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/) | 简单 | 链表 · 双指针 / 归并 | [📝](notes/27-合并两个有序链表.md) | [🐍](solutions/合并两个有序链表.py) |
 
 ## 目录结构
 
@@ -64,7 +66,9 @@ Algorithm-Notes/
 │   ├── 22-环形链表 II.md
 │   ├── 23-每日温度.md
 │   ├── 24-二叉树的层序遍历.md
-│   └── 25-缺失的第一个正数.md
+│   ├── 25-缺失的第一个正数.md
+│   ├── 26-两数相加.md
+│   └── 27-合并两个有序链表.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -90,7 +94,9 @@ Algorithm-Notes/
 │   ├── 环形链表 II.py
 │   ├── 每日温度.py
 │   ├── 二叉树的层序遍历.py
-│   └── 缺失的第一个正数.py
+│   ├── 缺失的第一个正数.py
+│   ├── 两数相加.py
+│   └── 合并两个有序链表.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```

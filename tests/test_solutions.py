@@ -1170,6 +1170,80 @@ def test_first_missing_positive_empty():
     assert Solution().firstMissingPositive([]) == 1
 
 
+# ---------------------------------------------------------------- 26. 两数相加
+
+def test_add_two_numbers_classic():
+    Solution = _load("add_two_numbers", "两数相加.py").Solution
+    result = Solution().addTwoNumbers(make_list([2, 4, 3]),
+                                      make_list([5, 6, 4]))
+    assert list_values(result) == [7, 0, 8]
+
+
+def test_add_two_numbers_zeros():
+    Solution = _load("add_two_numbers", "两数相加.py").Solution
+    result = Solution().addTwoNumbers(make_list([0]), make_list([0]))
+    assert list_values(result) == [0]
+
+
+def test_add_two_numbers_different_lengths():
+    Solution = _load("add_two_numbers", "两数相加.py").Solution
+    result = Solution().addTwoNumbers(make_list([9, 9, 9, 9]),
+                                      make_list([9, 9, 9]))
+    assert list_values(result) == [8, 9, 9, 0, 1]
+
+
+def test_add_two_numbers_final_carry():
+    Solution = _load("add_two_numbers", "两数相加.py").Solution
+    result = Solution().addTwoNumbers(make_list([5]), make_list([5]))
+    assert list_values(result) == [0, 1]
+
+
+def test_add_two_numbers_carry_through():
+    Solution = _load("add_two_numbers", "两数相加.py").Solution
+    result = Solution().addTwoNumbers(make_list([1]), make_list([9, 9]))
+    assert list_values(result) == [0, 0, 1]
+
+    result = Solution().addTwoNumbers(make_list([9, 9]), make_list([1]))
+    assert list_values(result) == [0, 0, 1]
+
+
+# -------------------------------------------------- 27. 合并两个有序链表
+
+def test_merge_lists_classic():
+    Solution = _load("merge_lists", "合并两个有序链表.py").Solution
+    result = Solution().mergeTwoLists(make_list([1, 2, 4]),
+                                      make_list([1, 3, 4]))
+    assert list_values(result) == [1, 1, 2, 3, 4, 4]
+
+
+def test_merge_lists_both_empty():
+    Solution = _load("merge_lists", "合并两个有序链表.py").Solution
+    assert Solution().mergeTwoLists(None, None) is None
+
+
+def test_merge_lists_one_empty():
+    Solution = _load("merge_lists", "合并两个有序链表.py").Solution
+    result = Solution().mergeTwoLists(None, make_list([0]))
+    assert list_values(result) == [0]
+
+    result = Solution().mergeTwoLists(make_list([5]), None)
+    assert list_values(result) == [5]
+
+
+def test_merge_lists_negative():
+    Solution = _load("merge_lists", "合并两个有序链表.py").Solution
+    result = Solution().mergeTwoLists(make_list([-10, -5, 0]),
+                                      make_list([-3, 2, 9]))
+    assert list_values(result) == [-10, -5, -3, 0, 2, 9]
+
+
+def test_merge_lists_duplicates():
+    Solution = _load("merge_lists", "合并两个有序链表.py").Solution
+    result = Solution().mergeTwoLists(make_list([1, 1]),
+                                      make_list([1, 1]))
+    assert list_values(result) == [1, 1, 1, 1]
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
