@@ -1244,6 +1244,71 @@ def test_merge_lists_duplicates():
     assert list_values(result) == [1, 1, 1, 1]
 
 
+# ------------------------------------------------------------ 28. 二进制位得分
+
+def test_binary_digit_score_equal():
+    Solution = _load("binary_digit_score", "二进制位得分.py").Solution
+    assert Solution().calculateScore(10, 12) == 4
+
+
+def test_binary_digit_score_more_bits_in_a():
+    Solution = _load("binary_digit_score", "二进制位得分.py").Solution
+    assert Solution().calculateScore(14, 6) == 6
+    assert Solution().calculateScore(3, 1) == 2
+
+
+def test_binary_digit_score_fewer_bits_in_a():
+    Solution = _load("binary_digit_score", "二进制位得分.py").Solution
+    assert Solution().calculateScore(5, 15) == 2
+    assert Solution().calculateScore(2, 3) == 2
+
+
+def test_binary_digit_score_minimum():
+    Solution = _load("binary_digit_score", "二进制位得分.py").Solution
+    assert Solution().calculateScore(1, 1) == 1
+    assert Solution().calculateScore(1, 2) == 1
+
+
+def test_binary_digit_score_large_values():
+    Solution = _load("binary_digit_score", "二进制位得分.py").Solution
+    # 100 = 1100100 (3 个 1), 63 = 111111 (6 个 1) -> 6 // 3 = 2
+    assert Solution().calculateScore(100, 63) == 2
+
+
+# ------------------------------------------------ 29. 柱状图中最大的矩形
+
+def test_largest_rectangle_classic():
+    Solution = _load("largest_rectangle", "柱状图中最大的矩形.py").Solution
+    assert Solution().largestRectangleArea([2, 1, 5, 6, 2, 3]) == 10
+
+
+def test_largest_rectangle_two_bars():
+    Solution = _load("largest_rectangle", "柱状图中最大的矩形.py").Solution
+    assert Solution().largestRectangleArea([2, 4]) == 4
+
+
+def test_largest_rectangle_single():
+    Solution = _load("largest_rectangle", "柱状图中最大的矩形.py").Solution
+    assert Solution().largestRectangleArea([1]) == 1
+
+
+def test_largest_rectangle_all_zero():
+    """全 0 时最大面积为 0 —— 抓 maxH 初始化成 -1 的 bug。"""
+    Solution = _load("largest_rectangle", "柱状图中最大的矩形.py").Solution
+    assert Solution().largestRectangleArea([0]) == 0
+
+
+def test_largest_rectangle_equal_heights():
+    Solution = _load("largest_rectangle", "柱状图中最大的矩形.py").Solution
+    assert Solution().largestRectangleArea([2, 2]) == 4
+    assert Solution().largestRectangleArea([1, 1]) == 2
+
+
+def test_largest_rectangle_with_zero():
+    Solution = _load("largest_rectangle", "柱状图中最大的矩形.py").Solution
+    assert Solution().largestRectangleArea([4, 2, 0, 3, 2, 5]) == 6
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
