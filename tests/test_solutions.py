@@ -1309,6 +1309,53 @@ def test_largest_rectangle_with_zero():
     assert Solution().largestRectangleArea([4, 2, 0, 3, 2, 5]) == 6
 
 
+# ------------------------------------------------------ 30. 验证二叉搜索树
+
+def test_validate_bst_simple():
+    Solution = _load("validate_bst", "验证二叉搜索树.py").Solution
+    assert Solution().isValidBST(make_tree([2, 1, 3])) is True
+
+
+def test_validate_bst_classic_invalid():
+    Solution = _load("validate_bst", "验证二叉搜索树.py").Solution
+    root = make_tree([5, 1, 4, None, None, 3, 6])
+    assert Solution().isValidBST(root) is False
+
+
+def test_validate_bst_grandchild_violation():
+    """局部比较没问题，但祖先约束被违反。"""
+    Solution = _load("validate_bst", "验证二叉搜索树.py").Solution
+    root = make_tree([5, 4, 6, None, None, 3, 7])
+    assert Solution().isValidBST(root) is False
+
+    root = make_tree([10, 5, 15, None, None, 6, 20])
+    assert Solution().isValidBST(root) is False
+
+
+def test_validate_bst_duplicates():
+    Solution = _load("validate_bst", "验证二叉搜索树.py").Solution
+    assert Solution().isValidBST(make_tree([2, 2, 2])) is False
+
+
+def test_validate_bst_empty_and_single():
+    Solution = _load("validate_bst", "验证二叉搜索树.py").Solution
+    assert Solution().isValidBST(None) is True
+    assert Solution().isValidBST(make_tree([1])) is True
+
+
+def test_validate_bst_int_limits():
+    """边界值不能因为用 INT_MIN/INT_MAX 当哨兵而误判。"""
+    Solution = _load("validate_bst", "验证二叉搜索树.py").Solution
+    assert Solution().isValidBST(make_tree([2147483647])) is True
+    assert Solution().isValidBST(make_tree([-2147483648])) is True
+
+
+def test_validate_bst_larger_valid():
+    Solution = _load("validate_bst", "验证二叉搜索树.py").Solution
+    root = make_tree([8, 3, 10, 1, 6, None, 14, None, None, 4, 7, 13])
+    assert Solution().isValidBST(root) is True
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():

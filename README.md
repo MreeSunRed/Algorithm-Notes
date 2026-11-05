@@ -37,6 +37,7 @@
 | 27 | [合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists/) | 简单 | 链表 · 双指针 / 归并 | [📝](notes/27-合并两个有序链表.md) | [🐍](solutions/合并两个有序链表.py) |
 | 28 | [二进制位得分](https://leetcode.cn/problems/binary-digit-score/) | 简单 | 位运算 · popcount | [📝](notes/28-二进制位得分.md) | [🐍](solutions/二进制位得分.py) |
 | 29 | [柱状图中最大的矩形](https://leetcode.cn/problems/largest-rectangle-in-histogram/) | 困难 | 数组 · 单调栈 | [📝](notes/29-柱状图中最大的矩形.md) | [🐍](solutions/柱状图中最大的矩形.py) |
+| 30 | [验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree/) | 中等 | 树 · 上下界 DFS / 中序遍历 | [📝](notes/30-验证二叉搜索树.md) | [🐍](solutions/验证二叉搜索树.py) |
 
 ## 目录结构
 
@@ -72,7 +73,8 @@ Algorithm-Notes/
 │   ├── 26-两数相加.md
 │   ├── 27-合并两个有序链表.md
 │   ├── 28-二进制位得分.md
-│   └── 29-柱状图中最大的矩形.md
+│   ├── 29-柱状图中最大的矩形.md
+│   └── 30-验证二叉搜索树.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -102,7 +104,8 @@ Algorithm-Notes/
 │   ├── 两数相加.py
 │   ├── 合并两个有序链表.py
 │   ├── 二进制位得分.py
-│   └── 柱状图中最大的矩形.py
+│   ├── 柱状图中最大的矩形.py
+│   └── 验证二叉搜索树.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```
