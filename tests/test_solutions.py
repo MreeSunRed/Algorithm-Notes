@@ -1356,6 +1356,86 @@ def test_validate_bst_larger_valid():
     assert Solution().isValidBST(root) is True
 
 
+# ---------------------------------------------------- 31. 合并整数后的最小值
+
+def test_min_merged_integer_classic():
+    Solution = _load("min_merged_integer",
+                     "合并整数后的最小值.py").Solution
+    # 固定配对 (70,41)->7041, (91,11)->9111
+    assert Solution().minMergedInteger([70, 41, 91, 11]) == 7041
+
+
+def test_min_merged_integer_multi_digit():
+    Solution = _load("min_merged_integer",
+                     "合并整数后的最小值.py").Solution
+    assert Solution().minMergedInteger([10, 2, 30, 4]) == 102
+    assert Solution().minMergedInteger([1, 23, 4, 56]) == 123
+
+
+def test_min_merged_integer_min_from_later_pair():
+    Solution = _load("min_merged_integer",
+                     "合并整数后的最小值.py").Solution
+    assert Solution().minMergedInteger([100, 1, 2, 3]) == 23
+
+
+def test_min_merged_integer_small_values():
+    Solution = _load("min_merged_integer",
+                     "合并整数后的最小值.py").Solution
+    assert Solution().minMergedInteger([9, 9]) == 99
+    assert Solution().minMergedInteger([0, 0]) == 0
+    assert Solution().minMergedInteger([12, 34]) == 1234
+
+
+def test_min_merged_integer_leading_zero_merge():
+    Solution = _load("min_merged_integer",
+                     "合并整数后的最小值.py").Solution
+    assert Solution().minMergedInteger([1, 0, 9, 9]) == 10
+
+
+# ------------------------------------------ 32. 找到字符串中所有字母异位词
+
+def test_find_anagrams_classic():
+    Solution = _load("find_anagrams",
+                     "找到字符串中所有字母异位词.py").Solution
+    assert Solution().findAnagrams("cbaebabacd", "abc") == [0, 6]
+
+
+def test_find_anagrams_overlapping():
+    Solution = _load("find_anagrams",
+                     "找到字符串中所有字母异位词.py").Solution
+    assert Solution().findAnagrams("abab", "ab") == [0, 1, 2]
+
+
+def test_find_anagrams_single_char():
+    Solution = _load("find_anagrams",
+                     "找到字符串中所有字母异位词.py").Solution
+    assert Solution().findAnagrams("a", "a") == [0]
+
+
+def test_find_anagrams_no_match():
+    Solution = _load("find_anagrams",
+                     "找到字符串中所有字母异位词.py").Solution
+    assert Solution().findAnagrams("aa", "bb") == []
+
+
+def test_find_anagrams_pattern_longer():
+    Solution = _load("find_anagrams",
+                     "找到字符串中所有字母异位词.py").Solution
+    assert Solution().findAnagrams("abc", "abcd") == []
+
+
+def test_find_anagrams_repeated_chars():
+    Solution = _load("find_anagrams",
+                     "找到字符串中所有字母异位词.py").Solution
+    assert Solution().findAnagrams("aaaa", "aa") == [0, 1, 2]
+
+
+def test_find_anagrams_empty_source():
+    Solution = _load("find_anagrams",
+                     "找到字符串中所有字母异位词.py").Solution
+    assert Solution().findAnagrams("", "a") == []
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
