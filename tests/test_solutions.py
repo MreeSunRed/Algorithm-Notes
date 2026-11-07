@@ -1476,6 +1476,48 @@ def test_longest_consecutive_multiple_runs():
     assert Solution().longestConsecutive(nums) == 6
 
 
+# ------------------------------------------ 34. 删除链表的倒数第 N 个结点
+
+def test_remove_nth_from_end_classic():
+    Solution = _load("remove_nth_from_end",
+                     "删除链表的倒数第 N 个结点.py").Solution
+    result = Solution().removeNthFromEnd(make_list([1, 2, 3, 4, 5]), 2)
+    assert list_values(result) == [1, 2, 3, 5]
+
+
+def test_remove_nth_from_end_single():
+    Solution = _load("remove_nth_from_end",
+                     "删除链表的倒数第 N 个结点.py").Solution
+    assert Solution().removeNthFromEnd(make_list([1]), 1) is None
+
+
+def test_remove_nth_from_end_tail():
+    Solution = _load("remove_nth_from_end",
+                     "删除链表的倒数第 N 个结点.py").Solution
+    result = Solution().removeNthFromEnd(make_list([1, 2]), 1)
+    assert list_values(result) == [1]
+
+    result = Solution().removeNthFromEnd(make_list([1, 2, 3]), 1)
+    assert list_values(result) == [1, 2]
+
+
+def test_remove_nth_from_end_head():
+    Solution = _load("remove_nth_from_end",
+                     "删除链表的倒数第 N 个结点.py").Solution
+    result = Solution().removeNthFromEnd(make_list([1, 2]), 2)
+    assert list_values(result) == [2]
+
+    result = Solution().removeNthFromEnd(make_list([1, 2, 3]), 3)
+    assert list_values(result) == [2, 3]
+
+
+def test_remove_nth_from_end_middle():
+    Solution = _load("remove_nth_from_end",
+                     "删除链表的倒数第 N 个结点.py").Solution
+    result = Solution().removeNthFromEnd(make_list([1, 2, 3, 4]), 3)
+    assert list_values(result) == [1, 3, 4]
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
