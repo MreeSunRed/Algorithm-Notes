@@ -5,7 +5,6 @@ class Solution(object):
         :rtype: int
         """
         num_set = set(nums)
-        s = []
         max_len = 0
         for k in num_set:
             if k - 1 not in num_set:
