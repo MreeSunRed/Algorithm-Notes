@@ -40,6 +40,7 @@
 | 30 | [验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree/) | 中等 | 树 · 上下界 DFS / 中序遍历 | [📝](notes/30-验证二叉搜索树.md) | [🐍](solutions/验证二叉搜索树.py) |
 | 31 | [合并整数后的最小值](https://leetcode.cn/problems/minimum-value-of-merged-integers/) | 简单 | 数组 · 模拟 / 字符串拼接 | [📝](notes/31-合并整数后的最小值.md) | [🐍](solutions/合并整数后的最小值.py) |
 | 32 | [找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) | 中等 | 字符串 · 滑动窗口 / 计数 | [📝](notes/32-找到字符串中所有字母异位词.md) | [🐍](solutions/找到字符串中所有字母异位词.py) |
+| 33 | [最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/) | 中等 | 数组 · 哈希集合 | [📝](notes/33-最长连续序列.md) | [🐍](solutions/最长连续序列.py) |
 
 ## 目录结构
 
@@ -78,7 +79,8 @@ Algorithm-Notes/
 │   ├── 29-柱状图中最大的矩形.md
 │   ├── 30-验证二叉搜索树.md
 │   ├── 31-合并整数后的最小值.md
-│   └── 32-找到字符串中所有字母异位词.md
+│   ├── 32-找到字符串中所有字母异位词.md
+│   └── 33-最长连续序列.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -111,7 +113,8 @@ Algorithm-Notes/
 │   ├── 柱状图中最大的矩形.py
 │   ├── 验证二叉搜索树.py
 │   ├── 合并整数后的最小值.py
-│   └── 找到字符串中所有字母异位词.py
+│   ├── 找到字符串中所有字母异位词.py
+│   └── 最长连续序列.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```

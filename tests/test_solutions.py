@@ -1436,6 +1436,46 @@ def test_find_anagrams_empty_source():
     assert Solution().findAnagrams("", "a") == []
 
 
+# ------------------------------------------------------------ 33. 最长连续序列
+
+def test_longest_consecutive_classic():
+    Solution = _load("longest_consecutive", "最长连续序列.py").Solution
+    assert Solution().longestConsecutive([100, 4, 200, 1, 3, 2]) == 4
+
+
+def test_longest_consecutive_with_duplicates():
+    Solution = _load("longest_consecutive", "最长连续序列.py").Solution
+    nums = [0, 3, 7, 2, 5, 8, 4, 6, 0, 1]
+    assert Solution().longestConsecutive(nums) == 9
+
+
+def test_longest_consecutive_empty():
+    Solution = _load("longest_consecutive", "最长连续序列.py").Solution
+    assert Solution().longestConsecutive([]) == 0
+
+
+def test_longest_consecutive_repeated():
+    Solution = _load("longest_consecutive", "最长连续序列.py").Solution
+    assert Solution().longestConsecutive([1, 2, 0, 1]) == 3
+    assert Solution().longestConsecutive([1, 1, 1]) == 1
+
+
+def test_longest_consecutive_negative():
+    Solution = _load("longest_consecutive", "最长连续序列.py").Solution
+    assert Solution().longestConsecutive([-1, 0, 1]) == 3
+
+
+def test_longest_consecutive_single():
+    Solution = _load("longest_consecutive", "最长连续序列.py").Solution
+    assert Solution().longestConsecutive([5]) == 1
+
+
+def test_longest_consecutive_multiple_runs():
+    Solution = _load("longest_consecutive", "最长连续序列.py").Solution
+    nums = [10, 5, 12, 3, 55, 30, 4, 11, 2, 1, 6]
+    assert Solution().longestConsecutive(nums) == 6
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
