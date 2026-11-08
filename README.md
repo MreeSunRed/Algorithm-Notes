@@ -42,6 +42,8 @@
 | 32 | [找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) | 中等 | 字符串 · 滑动窗口 / 计数 | [📝](notes/32-找到字符串中所有字母异位词.md) | [🐍](solutions/找到字符串中所有字母异位词.py) |
 | 33 | [最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence/) | 中等 | 数组 · 哈希集合 | [📝](notes/33-最长连续序列.md) | [🐍](solutions/最长连续序列.py) |
 | 34 | [删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) | 中等 | 链表 · 双指针 | [📝](notes/34-删除链表的倒数第 N 个结点.md) | [🐍](solutions/删除链表的倒数第 N 个结点.py) |
+| 35 | [二叉搜索树中第 K 小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst/) | 中等 | 树 · 中序遍历 / BST | [📝](notes/35-二叉搜索树中第K小的元素.md) | [🐍](solutions/二叉搜索树中第K小的元素.py) |
+| 36 | [二叉树的右视图](https://leetcode.cn/problems/binary-tree-right-side-view/) | 中等 | 树 · DFS 右优先 / BFS | [📝](notes/36-二叉树的右视图.md) | [🐍](solutions/二叉树的右视图.py) |
 
 ## 目录结构
 
@@ -82,7 +84,9 @@ Algorithm-Notes/
 │   ├── 31-合并整数后的最小值.md
 │   ├── 32-找到字符串中所有字母异位词.md
 │   ├── 33-最长连续序列.md
-│   └── 34-删除链表的倒数第 N 个结点.md
+│   ├── 34-删除链表的倒数第 N 个结点.md
+│   ├── 35-二叉搜索树中第K小的元素.md
+│   └── 36-二叉树的右视图.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -117,7 +121,9 @@ Algorithm-Notes/
 │   ├── 合并整数后的最小值.py
 │   ├── 找到字符串中所有字母异位词.py
 │   ├── 最长连续序列.py
-│   └── 删除链表的倒数第 N 个结点.py
+│   ├── 删除链表的倒数第 N 个结点.py
+│   ├── 二叉搜索树中第K小的元素.py
+│   └── 二叉树的右视图.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```

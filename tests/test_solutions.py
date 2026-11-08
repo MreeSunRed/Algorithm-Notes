@@ -1518,6 +1518,95 @@ def test_remove_nth_from_end_middle():
     assert list_values(result) == [1, 3, 4]
 
 
+# ------------------------------------------ 35. 二叉搜索树中第 K 小的元素
+
+def test_kth_smallest_basic():
+    Solution = _load("kth_smallest", "二叉搜索树中第K小的元素.py").Solution
+    assert Solution().kthSmallest(make_tree([3, 1, 4, None, 2]), 1) == 1
+    assert Solution().kthSmallest(make_tree([3, 1, 4, None, 2]), 2) == 2
+    assert Solution().kthSmallest(make_tree([3, 1, 4, None, 2]), 3) == 3
+
+
+def test_kth_smallest_classic():
+    Solution = _load("kth_smallest", "二叉搜索树中第K小的元素.py").Solution
+    root = make_tree([5, 3, 6, 2, 4, None, None, 1])
+    assert Solution().kthSmallest(root, 1) == 1
+    assert Solution().kthSmallest(make_tree([5, 3, 6, 2, 4, None, None, 1]), 3) == 3
+
+
+def test_kth_smallest_single():
+    Solution = _load("kth_smallest", "二叉搜索树中第K小的元素.py").Solution
+    assert Solution().kthSmallest(make_tree([1]), 1) == 1
+
+
+def test_kth_smallest_max():
+    """k = n 时取到最大值。"""
+    Solution = _load("kth_smallest", "二叉搜索树中第K小的元素.py").Solution
+    root = make_tree([5, 3, 6, 2, 4, None, None, 1])
+    assert Solution().kthSmallest(root, 6) == 6
+
+
+def test_kth_smallest_left_skewed():
+    Solution = _load("kth_smallest", "二叉搜索树中第K小的元素.py").Solution
+    values = [5, 4, None, 3, None, 2, None, 1]
+    assert Solution().kthSmallest(make_tree(values), 1) == 1
+    assert Solution().kthSmallest(make_tree(values), 5) == 5
+
+
+def test_kth_smallest_right_skewed():
+    Solution = _load("kth_smallest", "二叉搜索树中第K小的元素.py").Solution
+    values = [1, None, 2, None, 3, None, 4]
+    assert Solution().kthSmallest(make_tree(values), 2) == 2
+    assert Solution().kthSmallest(make_tree(values), 4) == 4
+
+
+# ------------------------------------------------ 36. 二叉树的右视图
+
+def test_right_side_view_classic():
+    Solution = _load("right_side_view", "二叉树的右视图.py").Solution
+    root = make_tree([1, 2, 3, None, 5, None, 4])
+    assert Solution().rightSideView(root) == [1, 3, 4]
+
+
+def test_right_side_view_empty():
+    Solution = _load("right_side_view", "二叉树的右视图.py").Solution
+    assert Solution().rightSideView(None) == []
+
+
+def test_right_side_view_single():
+    Solution = _load("right_side_view", "二叉树的右视图.py").Solution
+    assert Solution().rightSideView(make_tree([1])) == [1]
+
+
+def test_right_side_view_left_leaning():
+    """只有左孩子时，左孩子也能被看到。"""
+    Solution = _load("right_side_view", "二叉树的右视图.py").Solution
+    assert Solution().rightSideView(make_tree([1, 2])) == [1, 2]
+
+
+def test_right_side_view_right_leaning():
+    Solution = _load("right_side_view", "二叉树的右视图.py").Solution
+    assert Solution().rightSideView(make_tree([1, None, 3])) == [1, 3]
+
+
+def test_right_side_view_deep_left():
+    """第 3 层只有左子树的节点，右优先 DFS 也要能补上。"""
+    Solution = _load("right_side_view", "二叉树的右视图.py").Solution
+    assert Solution().rightSideView(make_tree([1, 2, 3, 4])) == [1, 3, 4]
+
+
+def test_right_side_view_missing_right():
+    """右孩子缺失时，由左子树的右孩子补位。"""
+    Solution = _load("right_side_view", "二叉树的右视图.py").Solution
+    assert Solution().rightSideView(make_tree([1, 2, 3, None, 5])) == [1, 3, 5]
+
+
+def test_right_side_view_asymmetric():
+    Solution = _load("right_side_view", "二叉树的右视图.py").Solution
+    root = make_tree([1, 2, 3, 4, None, None, 5])
+    assert Solution().rightSideView(root) == [1, 3, 5]
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
