@@ -1607,6 +1607,31 @@ def test_right_side_view_asymmetric():
     assert Solution().rightSideView(root) == [1, 3, 5]
 
 
+# ------------------------------------------------------------ 37. 爬楼梯
+
+def test_climb_stairs_small():
+    Solution = _load("climb_stairs", "爬楼梯.py").Solution
+    assert Solution().climbStairs(1) == 1
+    assert Solution().climbStairs(2) == 2
+    assert Solution().climbStairs(3) == 3
+
+
+def test_climb_stairs_fibonacci():
+    """前几项应是 1, 2, 3, 5, 8。"""
+    Solution = _load("climb_stairs", "爬楼梯.py").Solution
+    assert [Solution().climbStairs(n) for n in range(1, 6)] == [1, 2, 3, 5, 8]
+
+
+def test_climb_stairs_larger():
+    Solution = _load("climb_stairs", "爬楼梯.py").Solution
+    assert Solution().climbStairs(10) == 89
+
+
+def test_climb_stairs_max_constraint():
+    Solution = _load("climb_stairs", "爬楼梯.py").Solution
+    assert Solution().climbStairs(45) == 1836311903
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():

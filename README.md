@@ -44,6 +44,7 @@
 | 34 | [删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/) | 中等 | 链表 · 双指针 | [📝](notes/34-删除链表的倒数第 N 个结点.md) | [🐍](solutions/删除链表的倒数第 N 个结点.py) |
 | 35 | [二叉搜索树中第 K 小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst/) | 中等 | 树 · 中序遍历 / BST | [📝](notes/35-二叉搜索树中第K小的元素.md) | [🐍](solutions/二叉搜索树中第K小的元素.py) |
 | 36 | [二叉树的右视图](https://leetcode.cn/problems/binary-tree-right-side-view/) | 中等 | 树 · DFS 右优先 / BFS | [📝](notes/36-二叉树的右视图.md) | [🐍](solutions/二叉树的右视图.py) |
+| 37 | [爬楼梯](https://leetcode.cn/problems/climbing-stairs/) | 简单 | 动态规划 · 斐波那契递推 | [📝](notes/37-爬楼梯.md) | [🐍](solutions/爬楼梯.py) |
 
 ## 目录结构
 
@@ -86,7 +87,8 @@ Algorithm-Notes/
 │   ├── 33-最长连续序列.md
 │   ├── 34-删除链表的倒数第 N 个结点.md
 │   ├── 35-二叉搜索树中第K小的元素.md
-│   └── 36-二叉树的右视图.md
+│   ├── 36-二叉树的右视图.md
+│   └── 37-爬楼梯.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -123,7 +125,8 @@ Algorithm-Notes/
 │   ├── 最长连续序列.py
 │   ├── 删除链表的倒数第 N 个结点.py
 │   ├── 二叉搜索树中第K小的元素.py
-│   └── 二叉树的右视图.py
+│   ├── 二叉树的右视图.py
+│   └── 爬楼梯.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```
