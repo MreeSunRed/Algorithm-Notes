@@ -1632,6 +1632,108 @@ def test_climb_stairs_max_constraint():
     assert Solution().climbStairs(45) == 1836311903
 
 
+# ---------------------------------------------------------------- 38. 移动零
+
+def test_move_zeroes_classic():
+    Solution = _load("move_zeroes", "移动零.py").Solution
+    nums = [0, 1, 0, 3, 12]
+    result = Solution().moveZeroes(nums)
+    assert nums == [1, 3, 12, 0, 0]
+    assert result is None
+
+
+def test_move_zeroes_single():
+    Solution = _load("move_zeroes", "移动零.py").Solution
+    nums = [0]
+    Solution().moveZeroes(nums)
+    assert nums == [0]
+
+    nums = [1]
+    Solution().moveZeroes(nums)
+    assert nums == [1]
+
+
+def test_move_zeroes_all_zero():
+    Solution = _load("move_zeroes", "移动零.py").Solution
+    nums = [0, 0, 0]
+    Solution().moveZeroes(nums)
+    assert nums == [0, 0, 0]
+
+
+def test_move_zeroes_no_zero():
+    Solution = _load("move_zeroes", "移动零.py").Solution
+    nums = [1, 2, 3]
+    Solution().moveZeroes(nums)
+    assert nums == [1, 2, 3]
+
+
+def test_move_zeroes_zero_at_tail():
+    Solution = _load("move_zeroes", "移动零.py").Solution
+    nums = [1, 0]
+    Solution().moveZeroes(nums)
+    assert nums == [1, 0]
+
+
+def test_move_zeroes_zero_at_head():
+    Solution = _load("move_zeroes", "移动零.py").Solution
+    nums = [0, 1]
+    Solution().moveZeroes(nums)
+    assert nums == [1, 0]
+
+
+def test_move_zeroes_preserve_order():
+    Solution = _load("move_zeroes", "移动零.py").Solution
+    nums = [0, 1, 0, 0, 2]
+    Solution().moveZeroes(nums)
+    assert nums == [1, 2, 0, 0, 0]
+
+
+# ------------------------------------------------------ 39. 和为 K 的子数组
+
+def test_subarray_sum_classic():
+    Solution = _load("subarray_sum", "和为 K 的子数组.py").Solution
+    assert Solution().subarraySum([1, 1, 1], 2) == 2
+
+
+def test_subarray_sum_basic():
+    Solution = _load("subarray_sum", "和为 K 的子数组.py").Solution
+    assert Solution().subarraySum([1, 2, 3], 3) == 2
+
+
+def test_subarray_sum_with_negative_and_zero():
+    Solution = _load("subarray_sum", "和为 K 的子数组.py").Solution
+    assert Solution().subarraySum([1, -1, 0], 0) == 3
+
+
+def test_subarray_sum_all_zeros():
+    """前缀和全部相同，必须按出现次数统计。"""
+    Solution = _load("subarray_sum", "和为 K 的子数组.py").Solution
+    assert Solution().subarraySum([0, 0, 0], 0) == 6
+
+
+def test_subarray_sum_negative_cancel():
+    Solution = _load("subarray_sum", "和为 K 的子数组.py").Solution
+    assert Solution().subarraySum([-1, -1, 1], 0) == 1
+
+
+def test_subarray_sum_leetcode_example():
+    Solution = _load("subarray_sum", "和为 K 的子数组.py").Solution
+    nums = [3, 4, 7, 2, -3, 1, 4, 2]
+    assert Solution().subarraySum(nums, 7) == 4
+
+
+def test_subarray_sum_single():
+    Solution = _load("subarray_sum", "和为 K 的子数组.py").Solution
+    assert Solution().subarraySum([1], 0) == 0
+    assert Solution().subarraySum([1], 1) == 1
+
+
+def test_subarray_sum_empty():
+    """LeetCode 保证 n >= 1；空数组返回 0。"""
+    Solution = _load("subarray_sum", "和为 K 的子数组.py").Solution
+    assert Solution().subarraySum([], 0) == 0
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():

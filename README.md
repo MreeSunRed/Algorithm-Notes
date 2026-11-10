@@ -45,6 +45,8 @@
 | 35 | [二叉搜索树中第 K 小的元素](https://leetcode.cn/problems/kth-smallest-element-in-a-bst/) | 中等 | 树 · 中序遍历 / BST | [📝](notes/35-二叉搜索树中第K小的元素.md) | [🐍](solutions/二叉搜索树中第K小的元素.py) |
 | 36 | [二叉树的右视图](https://leetcode.cn/problems/binary-tree-right-side-view/) | 中等 | 树 · DFS 右优先 / BFS | [📝](notes/36-二叉树的右视图.md) | [🐍](solutions/二叉树的右视图.py) |
 | 37 | [爬楼梯](https://leetcode.cn/problems/climbing-stairs/) | 简单 | 动态规划 · 斐波那契递推 | [📝](notes/37-爬楼梯.md) | [🐍](solutions/爬楼梯.py) |
+| 38 | [移动零](https://leetcode.cn/problems/move-zeroes/) | 简单 | 数组 · 双指针 / 原地交换 | [📝](notes/38-移动零.md) | [🐍](solutions/移动零.py) |
+| 39 | [和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/) | 中等 | 数组 · 前缀和 / 哈希表 | [📝](notes/39-和为 K 的子数组.md) | [🐍](solutions/和为 K 的子数组.py) |
 
 ## 目录结构
 
@@ -88,7 +90,9 @@ Algorithm-Notes/
 │   ├── 34-删除链表的倒数第 N 个结点.md
 │   ├── 35-二叉搜索树中第K小的元素.md
 │   ├── 36-二叉树的右视图.md
-│   └── 37-爬楼梯.md
+│   ├── 37-爬楼梯.md
+│   ├── 38-移动零.md
+│   └── 39-和为 K 的子数组.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -126,7 +130,9 @@ Algorithm-Notes/
 │   ├── 删除链表的倒数第 N 个结点.py
 │   ├── 二叉搜索树中第K小的元素.py
 │   ├── 二叉树的右视图.py
-│   └── 爬楼梯.py
+│   ├── 爬楼梯.py
+│   ├── 移动零.py
+│   └── 和为 K 的子数组.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```
