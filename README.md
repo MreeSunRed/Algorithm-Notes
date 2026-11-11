@@ -47,6 +47,8 @@
 | 37 | [爬楼梯](https://leetcode.cn/problems/climbing-stairs/) | 简单 | 动态规划 · 斐波那契递推 | [📝](notes/37-爬楼梯.md) | [🐍](solutions/爬楼梯.py) |
 | 38 | [移动零](https://leetcode.cn/problems/move-zeroes/) | 简单 | 数组 · 双指针 / 原地交换 | [📝](notes/38-移动零.md) | [🐍](solutions/移动零.py) |
 | 39 | [和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/) | 中等 | 数组 · 前缀和 / 哈希表 | [📝](notes/39-和为 K 的子数组.md) | [🐍](solutions/和为 K 的子数组.py) |
+| 40 | [两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs/) | 中等 | 链表 · 递归 / 指针操作 | [📝](notes/40-两两交换链表中的节点.md) | [🐍](solutions/两两交换链表中的节点.py) |
+| 41 | [随机链表的复制](https://leetcode.cn/problems/copy-list-with-random-pointer/) | 中等 | 链表 · 哈希表 / 深拷贝 | [📝](notes/41-随机链表的复制.md) | [🐍](solutions/随机链表的复制.py) |
 
 ## 目录结构
 
@@ -92,7 +94,9 @@ Algorithm-Notes/
 │   ├── 36-二叉树的右视图.md
 │   ├── 37-爬楼梯.md
 │   ├── 38-移动零.md
-│   └── 39-和为 K 的子数组.md
+│   ├── 39-和为 K 的子数组.md
+│   ├── 40-两两交换链表中的节点.md
+│   └── 41-随机链表的复制.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -132,7 +136,9 @@ Algorithm-Notes/
 │   ├── 二叉树的右视图.py
 │   ├── 爬楼梯.py
 │   ├── 移动零.py
-│   └── 和为 K 的子数组.py
+│   ├── 和为 K 的子数组.py
+│   ├── 两两交换链表中的节点.py
+│   └── 随机链表的复制.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```

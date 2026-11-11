@@ -112,6 +112,32 @@ def node_at(head, index):
     return cur
 
 
+def make_random_list(values, random_indices):
+    """按值列表与 random 下标列表构造带 random 指针的链表。"""
+    Node = _load("copy_random_list", "随机链表的复制.py").Node
+    nodes = [Node(v) for v in values]
+    for i in range(len(nodes) - 1):
+        nodes[i].next = nodes[i + 1]
+    for i, j in enumerate(random_indices):
+        if j is not None:
+            nodes[i].random = nodes[j]
+    return nodes[0] if nodes else None
+
+
+def random_list_signature(head):
+    """返回 (值序列, random 下标序列)，用于比较两条带 random 指针的链表。"""
+    nodes = []
+    cur = head
+    while cur is not None:
+        nodes.append(cur)
+        cur = cur.next
+    index = {id(node): i for i, node in enumerate(nodes)}
+    values = [node.val for node in nodes]
+    randoms = [index[id(node.random)] if node.random is not None else None
+               for node in nodes]
+    return values, randoms
+
+
 def inorder_values(root):
     """返回二叉树的中序遍历值序列。"""
     if root is None:
@@ -1732,6 +1758,105 @@ def test_subarray_sum_empty():
     """LeetCode 保证 n >= 1；空数组返回 0。"""
     Solution = _load("subarray_sum", "和为 K 的子数组.py").Solution
     assert Solution().subarraySum([], 0) == 0
+
+
+# ------------------------------------------ 40. 两两交换链表中的节点
+
+def test_swap_pairs_classic():
+    Solution = _load("swap_pairs", "两两交换链表中的节点.py").Solution
+    result = Solution().swapPairs(make_list([1, 2, 3, 4]))
+    assert list_values(result) == [2, 1, 4, 3]
+
+
+def test_swap_pairs_odd_length():
+    Solution = _load("swap_pairs", "两两交换链表中的节点.py").Solution
+    result = Solution().swapPairs(make_list([1, 2, 3]))
+    assert list_values(result) == [2, 1, 3]
+
+
+def test_swap_pairs_single():
+    Solution = _load("swap_pairs", "两两交换链表中的节点.py").Solution
+    assert list_values(Solution().swapPairs(make_list([1]))) == [1]
+
+
+def test_swap_pairs_empty():
+    Solution = _load("swap_pairs", "两两交换链表中的节点.py").Solution
+    assert Solution().swapPairs(None) is None
+
+
+def test_swap_pairs_two():
+    Solution = _load("swap_pairs", "两两交换链表中的节点.py").Solution
+    result = Solution().swapPairs(make_list([1, 2]))
+    assert list_values(result) == [2, 1]
+
+
+def test_swap_pairs_long():
+    Solution = _load("swap_pairs", "两两交换链表中的节点.py").Solution
+    result = Solution().swapPairs(make_list([1, 2, 3, 4, 5, 6]))
+    assert list_values(result) == [2, 1, 4, 3, 6, 5]
+
+
+# ------------------------------------------------ 41. 随机链表的复制
+
+def test_copy_random_list_classic():
+    Solution = _load("copy_random_list", "随机链表的复制.py").Solution
+    head = make_random_list([7, 13, 11, 10, 1], [None, 0, 4, 2, 0])
+    copied = Solution().copyRandomList(head)
+    assert random_list_signature(copied) == ([7, 13, 11, 10, 1],
+                                             [None, 0, 4, 2, 0])
+
+
+def test_copy_random_list_empty():
+    Solution = _load("copy_random_list", "随机链表的复制.py").Solution
+    assert Solution().copyRandomList(None) is None
+
+
+def test_copy_random_list_single_random_none():
+    Solution = _load("copy_random_list", "随机链表的复制.py").Solution
+    copied = Solution().copyRandomList(make_random_list([7], [None]))
+    assert random_list_signature(copied) == ([7], [None])
+
+
+def test_copy_random_list_single_random_self():
+    Solution = _load("copy_random_list", "随机链表的复制.py").Solution
+    copied = Solution().copyRandomList(make_random_list([7], [0]))
+    assert random_list_signature(copied) == ([7], [0])
+
+
+def test_copy_random_list_all_none_random():
+    Solution = _load("copy_random_list", "随机链表的复制.py").Solution
+    head = make_random_list([1, 2, 3], [None, None, None])
+    copied = Solution().copyRandomList(head)
+    assert random_list_signature(copied) == ([1, 2, 3], [None, None, None])
+
+
+def test_copy_random_list_duplicate_values():
+    """值全部相同，必须按节点身份映射而不是按值映射。"""
+    Solution = _load("copy_random_list", "随机链表的复制.py").Solution
+    head = make_random_list([1, 1, 1], [2, 0, 1])
+    copied = Solution().copyRandomList(head)
+    assert random_list_signature(copied) == ([1, 1, 1], [2, 0, 1])
+
+
+def test_copy_random_list_is_deep_copy():
+    """新链表不能复用原链表的任何节点，且原链表保持不变。"""
+    Solution = _load("copy_random_list", "随机链表的复制.py").Solution
+    head = make_random_list([7, 13, 11, 10, 1], [None, 0, 4, 2, 0])
+    original_before = random_list_signature(head)
+    copied = Solution().copyRandomList(head)
+
+    original_ids, copied_ids = set(), set()
+    cur = head
+    while cur is not None:
+        original_ids.add(id(cur))
+        cur = cur.next
+    cur = copied
+    while cur is not None:
+        copied_ids.add(id(cur))
+        cur = cur.next
+
+    assert original_ids.isdisjoint(copied_ids)
+    assert random_list_signature(head) == original_before
 
 
 # ------------------------------------------------------------------ 运行入口
