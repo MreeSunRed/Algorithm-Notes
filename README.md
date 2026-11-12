@@ -49,6 +49,8 @@
 | 39 | [和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k/) | 中等 | 数组 · 前缀和 / 哈希表 | [📝](notes/39-和为 K 的子数组.md) | [🐍](solutions/和为 K 的子数组.py) |
 | 40 | [两两交换链表中的节点](https://leetcode.cn/problems/swap-nodes-in-pairs/) | 中等 | 链表 · 递归 / 指针操作 | [📝](notes/40-两两交换链表中的节点.md) | [🐍](solutions/两两交换链表中的节点.py) |
 | 41 | [随机链表的复制](https://leetcode.cn/problems/copy-list-with-random-pointer/) | 中等 | 链表 · 哈希表 / 深拷贝 | [📝](notes/41-随机链表的复制.md) | [🐍](solutions/随机链表的复制.py) |
+| 42 | [杨辉三角](https://leetcode.cn/problems/pascals-triangle/) | 简单 | 数组 · 动态规划 / 递推 | [📝](notes/42-杨辉三角.md) | [🐍](solutions/杨辉三角.py) |
+| 43 | [只出现一次的数字](https://leetcode.cn/problems/single-number/) | 简单 | 位运算 · 异或 | [📝](notes/43-只出现一次的数字.md) | [🐍](solutions/只出现一次的数字.py) |
 
 ## 目录结构
 
@@ -96,7 +98,9 @@ Algorithm-Notes/
 │   ├── 38-移动零.md
 │   ├── 39-和为 K 的子数组.md
 │   ├── 40-两两交换链表中的节点.md
-│   └── 41-随机链表的复制.md
+│   ├── 41-随机链表的复制.md
+│   ├── 42-杨辉三角.md
+│   └── 43-只出现一次的数字.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -138,7 +142,9 @@ Algorithm-Notes/
 │   ├── 移动零.py
 │   ├── 和为 K 的子数组.py
 │   ├── 两两交换链表中的节点.py
-│   └── 随机链表的复制.py
+│   ├── 随机链表的复制.py
+│   ├── 杨辉三角.py
+│   └── 只出现一次的数字.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```

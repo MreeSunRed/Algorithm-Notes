@@ -1859,6 +1859,88 @@ def test_copy_random_list_is_deep_copy():
     assert random_list_signature(head) == original_before
 
 
+# ---------------------------------------------------------------- 42. 杨辉三角
+
+def test_pascal_triangle_one_row():
+    Solution = _load("pascal_triangle", "杨辉三角.py").Solution
+    assert Solution().generate(1) == [[1]]
+
+
+def test_pascal_triangle_two_rows():
+    Solution = _load("pascal_triangle", "杨辉三角.py").Solution
+    assert Solution().generate(2) == [[1], [1, 1]]
+
+
+def test_pascal_triangle_classic():
+    Solution = _load("pascal_triangle", "杨辉三角.py").Solution
+    assert Solution().generate(5) == [
+        [1],
+        [1, 1],
+        [1, 2, 1],
+        [1, 3, 3, 1],
+        [1, 4, 6, 4, 1],
+    ]
+
+
+def test_pascal_triangle_row_lengths():
+    Solution = _load("pascal_triangle", "杨辉三角.py").Solution
+    triangle = Solution().generate(10)
+    assert [len(row) for row in triangle] == list(range(1, 11))
+
+
+def test_pascal_triangle_endpoints_and_symmetry():
+    Solution = _load("pascal_triangle", "杨辉三角.py").Solution
+    triangle = Solution().generate(8)
+    for row in triangle:
+        assert row[0] == 1
+        assert row[-1] == 1
+        assert row == row[::-1]
+
+
+def test_pascal_triangle_recurrence():
+    """中间项等于上一行相邻两项之和；第 i 行的行和应为 2 的 i 次方。"""
+    Solution = _load("pascal_triangle", "杨辉三角.py").Solution
+    triangle = Solution().generate(12)
+    for i in range(1, len(triangle)):
+        prev, cur = triangle[i - 1], triangle[i]
+        for j in range(1, len(cur) - 1):
+            assert cur[j] == prev[j - 1] + prev[j]
+    assert [sum(row) for row in triangle] == [2 ** i for i in range(12)]
+
+
+# ------------------------------------------------------ 43. 只出现一次的数字
+
+def test_single_number_classic():
+    Solution = _load("single_number", "只出现一次的数字.py").Solution
+    assert Solution().singleNumber([2, 2, 1]) == 1
+
+
+def test_single_number_single_element():
+    Solution = _load("single_number", "只出现一次的数字.py").Solution
+    assert Solution().singleNumber([1]) == 1
+
+
+def test_single_number_zero():
+    Solution = _load("single_number", "只出现一次的数字.py").Solution
+    assert Solution().singleNumber([0, 1, 0]) == 1
+
+
+def test_single_number_negative():
+    Solution = _load("single_number", "只出现一次的数字.py").Solution
+    assert Solution().singleNumber([-1, -1, -2]) == -2
+
+
+def test_single_number_interleaved_pairs():
+    Solution = _load("single_number", "只出现一次的数字.py").Solution
+    assert Solution().singleNumber([7, 3, 3, 7, 9]) == 9
+    assert Solution().singleNumber([10000, -10000, 10000]) == -10000
+
+
+def test_single_number_answer_in_middle():
+    Solution = _load("single_number", "只出现一次的数字.py").Solution
+    assert Solution().singleNumber([4, 1, 2, 1, 2]) == 4
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
