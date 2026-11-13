@@ -145,6 +145,17 @@ def inorder_values(root):
     return inorder_values(root.left) + [root.val] + inorder_values(root.right)
 
 
+def flattened_values(root):
+    """按 right 指针读取展开后的链表，同时校验每个节点的 left 为空。"""
+    values = []
+    cur = root
+    while cur is not None:
+        assert cur.left is None, "展开后 left 指针必须为空"
+        values.append(cur.val)
+        cur = cur.right
+    return values
+
+
 def tree_height(root):
     """返回二叉树的高度（按节点数计）。"""
     if root is None:
@@ -1939,6 +1950,55 @@ def test_single_number_interleaved_pairs():
 def test_single_number_answer_in_middle():
     Solution = _load("single_number", "只出现一次的数字.py").Solution
     assert Solution().singleNumber([4, 1, 2, 1, 2]) == 4
+
+
+# ------------------------------------------------------ 44. 二叉树展开为链表
+
+def test_flatten_classic():
+    Solution = _load("flatten_binary_tree", "二叉树展开为链表.py").Solution
+    root = make_tree([1, 2, 5, 3, 4, None, 6])
+    assert Solution().flatten(root) is None
+    assert flattened_values(root) == [1, 2, 3, 4, 5, 6]
+
+
+def test_flatten_empty():
+    Solution = _load("flatten_binary_tree", "二叉树展开为链表.py").Solution
+    assert Solution().flatten(None) is None
+
+
+def test_flatten_single():
+    Solution = _load("flatten_binary_tree", "二叉树展开为链表.py").Solution
+    root = make_tree([0])
+    Solution().flatten(root)
+    assert flattened_values(root) == [0]
+
+
+def test_flatten_left_skewed():
+    Solution = _load("flatten_binary_tree", "二叉树展开为链表.py").Solution
+    root = make_tree([1, 2, None, 3])
+    Solution().flatten(root)
+    assert flattened_values(root) == [1, 2, 3]
+
+
+def test_flatten_right_skewed():
+    Solution = _load("flatten_binary_tree", "二叉树展开为链表.py").Solution
+    root = make_tree([1, None, 2, None, 3])
+    Solution().flatten(root)
+    assert flattened_values(root) == [1, 2, 3]
+
+
+def test_flatten_balanced():
+    Solution = _load("flatten_binary_tree", "二叉树展开为链表.py").Solution
+    root = make_tree([1, 2, 3, 4, 5, 6, 7])
+    Solution().flatten(root)
+    assert flattened_values(root) == [1, 2, 4, 5, 3, 6, 7]
+
+
+def test_flatten_root_with_two_children():
+    Solution = _load("flatten_binary_tree", "二叉树展开为链表.py").Solution
+    root = make_tree([1, 2, 3])
+    Solution().flatten(root)
+    assert flattened_values(root) == [1, 2, 3]
 
 
 # ------------------------------------------------------------------ 运行入口

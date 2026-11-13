@@ -51,6 +51,7 @@
 | 41 | [随机链表的复制](https://leetcode.cn/problems/copy-list-with-random-pointer/) | 中等 | 链表 · 哈希表 / 深拷贝 | [📝](notes/41-随机链表的复制.md) | [🐍](solutions/随机链表的复制.py) |
 | 42 | [杨辉三角](https://leetcode.cn/problems/pascals-triangle/) | 简单 | 数组 · 动态规划 / 递推 | [📝](notes/42-杨辉三角.md) | [🐍](solutions/杨辉三角.py) |
 | 43 | [只出现一次的数字](https://leetcode.cn/problems/single-number/) | 简单 | 位运算 · 异或 | [📝](notes/43-只出现一次的数字.md) | [🐍](solutions/只出现一次的数字.py) |
+| 44 | [二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/) | 中等 | 树 · 前序遍历 / 指针重接 | [📝](notes/44-二叉树展开为链表.md) | [🐍](solutions/二叉树展开为链表.py) |
 
 ## 目录结构
 
@@ -100,7 +101,8 @@ Algorithm-Notes/
 │   ├── 40-两两交换链表中的节点.md
 │   ├── 41-随机链表的复制.md
 │   ├── 42-杨辉三角.md
-│   └── 43-只出现一次的数字.md
+│   ├── 43-只出现一次的数字.md
+│   └── 44-二叉树展开为链表.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -144,7 +146,8 @@ Algorithm-Notes/
 │   ├── 两两交换链表中的节点.py
 │   ├── 随机链表的复制.py
 │   ├── 杨辉三角.py
-│   └── 只出现一次的数字.py
+│   ├── 只出现一次的数字.py
+│   └── 二叉树展开为链表.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```
