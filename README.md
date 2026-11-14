@@ -52,6 +52,8 @@
 | 42 | [杨辉三角](https://leetcode.cn/problems/pascals-triangle/) | 简单 | 数组 · 动态规划 / 递推 | [📝](notes/42-杨辉三角.md) | [🐍](solutions/杨辉三角.py) |
 | 43 | [只出现一次的数字](https://leetcode.cn/problems/single-number/) | 简单 | 位运算 · 异或 | [📝](notes/43-只出现一次的数字.md) | [🐍](solutions/只出现一次的数字.py) |
 | 44 | [二叉树展开为链表](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/) | 中等 | 树 · 前序遍历 / 指针重接 | [📝](notes/44-二叉树展开为链表.md) | [🐍](solutions/二叉树展开为链表.py) |
+| 45 | [三数之和](https://leetcode.cn/problems/3sum/) | 中等 | 数组 · 排序 / 双指针 | [📝](notes/45-三数之和.md) | [🐍](solutions/三数之和.py) |
+| 46 | [盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/) | 中等 | 数组 · 双指针 / 贪心 | [📝](notes/46-盛最多水的容器.md) | [🐍](solutions/盛最多水的容器.py) |
 
 ## 目录结构
 
@@ -102,7 +104,9 @@ Algorithm-Notes/
 │   ├── 41-随机链表的复制.md
 │   ├── 42-杨辉三角.md
 │   ├── 43-只出现一次的数字.md
-│   └── 44-二叉树展开为链表.md
+│   ├── 44-二叉树展开为链表.md
+│   ├── 45-三数之和.md
+│   └── 46-盛最多水的容器.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -147,7 +151,9 @@ Algorithm-Notes/
 │   ├── 随机链表的复制.py
 │   ├── 杨辉三角.py
 │   ├── 只出现一次的数字.py
-│   └── 二叉树展开为链表.py
+│   ├── 二叉树展开为链表.py
+│   ├── 三数之和.py
+│   └── 盛最多水的容器.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```

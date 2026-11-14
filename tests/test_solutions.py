@@ -104,6 +104,11 @@ def normalize_groups(groups):
     return sorted(sorted(group) for group in groups)
 
 
+def normalize_triplets(triplets):
+    """把三元组结果归一化，忽略组间顺序与组内顺序。"""
+    return sorted(sorted(triplet) for triplet in triplets)
+
+
 def node_at(head, index):
     """返回从 head 起第 index 个节点（0 基）。"""
     cur = head
@@ -1999,6 +2004,88 @@ def test_flatten_root_with_two_children():
     root = make_tree([1, 2, 3])
     Solution().flatten(root)
     assert flattened_values(root) == [1, 2, 3]
+
+
+# -------------------------------------------------------------- 45. 三数之和
+
+def test_three_sum_classic():
+    Solution = _load("three_sum", "三数之和.py").Solution
+    result = Solution().threeSum([-1, 0, 1, 2, -1, -4])
+    assert normalize_triplets(result) == [[-1, -1, 2], [-1, 0, 1]]
+
+
+def test_three_sum_no_solution():
+    Solution = _load("three_sum", "三数之和.py").Solution
+    assert Solution().threeSum([0, 1, 1]) == []
+    assert Solution().threeSum([1, 2, 3]) == []
+
+
+def test_three_sum_all_zero():
+    Solution = _load("three_sum", "三数之和.py").Solution
+    assert normalize_triplets(Solution().threeSum([0, 0, 0])) == [[0, 0, 0]]
+    assert normalize_triplets(Solution().threeSum([0, 0, 0, 0])) == [[0, 0, 0]]
+
+
+def test_three_sum_two_solutions():
+    Solution = _load("three_sum", "三数之和.py").Solution
+    result = Solution().threeSum([-2, 0, 1, 1, 2])
+    assert normalize_triplets(result) == [[-2, 0, 2], [-2, 1, 1]]
+
+
+def test_three_sum_minimum_size():
+    Solution = _load("three_sum", "三数之和.py").Solution
+    result = Solution().threeSum([-1, 0, 1])
+    assert normalize_triplets(result) == [[-1, 0, 1]]
+
+
+def test_three_sum_multiple_groups():
+    Solution = _load("three_sum", "三数之和.py").Solution
+    result = Solution().threeSum([3, -2, -1, 0, 1, 2])
+    assert normalize_triplets(result) == [
+        [-2, -1, 3],
+        [-2, 0, 2],
+        [-1, 0, 1],
+    ]
+
+
+def test_three_sum_empty():
+    """LeetCode 保证 n >= 3；空数组返回 []。"""
+    Solution = _load("three_sum", "三数之和.py").Solution
+    assert Solution().threeSum([]) == []
+
+
+# -------------------------------------------------------- 46. 盛最多水的容器
+
+def test_max_area_classic():
+    Solution = _load("max_area", "盛最多水的容器.py").Solution
+    height = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+    assert Solution().maxArea(height) == 49
+
+
+def test_max_area_two_lines():
+    Solution = _load("max_area", "盛最多水的容器.py").Solution
+    assert Solution().maxArea([1, 1]) == 1
+    assert Solution().maxArea([1, 2]) == 1
+
+
+def test_max_area_ends_tallest():
+    Solution = _load("max_area", "盛最多水的容器.py").Solution
+    assert Solution().maxArea([4, 3, 2, 1, 4]) == 16
+
+
+def test_max_area_short_ends():
+    Solution = _load("max_area", "盛最多水的容器.py").Solution
+    assert Solution().maxArea([1, 2, 1]) == 2
+
+
+def test_max_area_adjacent_tallest():
+    Solution = _load("max_area", "盛最多水的容器.py").Solution
+    assert Solution().maxArea([2, 3, 4, 5, 18, 17, 6]) == 17
+
+
+def test_max_area_equal_heights():
+    Solution = _load("max_area", "盛最多水的容器.py").Solution
+    assert Solution().maxArea([1, 1, 1]) == 2
 
 
 # ------------------------------------------------------------------ 运行入口
