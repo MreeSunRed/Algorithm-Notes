@@ -2088,6 +2088,104 @@ def test_max_area_equal_heights():
     assert Solution().maxArea([1, 1, 1]) == 2
 
 
+# ------------------------------------------------------ 47. K 个一组翻转链表
+
+def test_reverse_k_group_k2():
+    Solution = _load("reverse_k_group", "K 个一组翻转链表.py").Solution
+    result = Solution().reverseKGroup(make_list([1, 2, 3, 4, 5]), 2)
+    assert list_values(result) == [2, 1, 4, 3, 5]
+
+
+def test_reverse_k_group_k3():
+    Solution = _load("reverse_k_group", "K 个一组翻转链表.py").Solution
+    result = Solution().reverseKGroup(make_list([1, 2, 3, 4, 5]), 3)
+    assert list_values(result) == [3, 2, 1, 4, 5]
+
+
+def test_reverse_k_group_k_equals_length():
+    Solution = _load("reverse_k_group", "K 个一组翻转链表.py").Solution
+    result = Solution().reverseKGroup(make_list([1, 2, 3]), 3)
+    assert list_values(result) == [3, 2, 1]
+
+
+def test_reverse_k_group_k1():
+    Solution = _load("reverse_k_group", "K 个一组翻转链表.py").Solution
+    result = Solution().reverseKGroup(make_list([1, 2, 3]), 1)
+    assert list_values(result) == [1, 2, 3]
+
+
+def test_reverse_k_group_exact_groups():
+    Solution = _load("reverse_k_group", "K 个一组翻转链表.py").Solution
+    result = Solution().reverseKGroup(make_list([1, 2, 3, 4]), 2)
+    assert list_values(result) == [2, 1, 4, 3]
+
+
+def test_reverse_k_group_remainder_untouched():
+    Solution = _load("reverse_k_group", "K 个一组翻转链表.py").Solution
+    result = Solution().reverseKGroup(make_list([1, 2, 3, 4]), 3)
+    assert list_values(result) == [3, 2, 1, 4]
+
+
+def test_reverse_k_group_shorter_than_k():
+    Solution = _load("reverse_k_group", "K 个一组翻转链表.py").Solution
+    result = Solution().reverseKGroup(make_list([1, 2]), 3)
+    assert list_values(result) == [1, 2]
+
+
+def test_reverse_k_group_empty():
+    Solution = _load("reverse_k_group", "K 个一组翻转链表.py").Solution
+    assert Solution().reverseKGroup(None, 2) is None
+
+
+# ------------------------------------------------------------ 48. 排序链表
+
+def test_sort_list_classic():
+    Solution = _load("sort_list", "排序链表.py").Solution
+    result = Solution().sortList(make_list([4, 2, 1, 3]))
+    assert list_values(result) == [1, 2, 3, 4]
+
+
+def test_sort_list_negative():
+    Solution = _load("sort_list", "排序链表.py").Solution
+    result = Solution().sortList(make_list([-1, 5, 3, 4, 0]))
+    assert list_values(result) == [-1, 0, 3, 4, 5]
+
+
+def test_sort_list_empty():
+    Solution = _load("sort_list", "排序链表.py").Solution
+    assert Solution().sortList(None) is None
+
+
+def test_sort_list_single():
+    Solution = _load("sort_list", "排序链表.py").Solution
+    result = Solution().sortList(make_list([1]))
+    assert list_values(result) == [1]
+
+
+def test_sort_list_two_nodes():
+    Solution = _load("sort_list", "排序链表.py").Solution
+    result = Solution().sortList(make_list([2, 1]))
+    assert list_values(result) == [1, 2]
+
+
+def test_sort_list_already_sorted():
+    Solution = _load("sort_list", "排序链表.py").Solution
+    result = Solution().sortList(make_list([1, 2, 3, 4]))
+    assert list_values(result) == [1, 2, 3, 4]
+
+
+def test_sort_list_reverse_sorted():
+    Solution = _load("sort_list", "排序链表.py").Solution
+    result = Solution().sortList(make_list([5, 4, 3, 2, 1]))
+    assert list_values(result) == [1, 2, 3, 4, 5]
+
+
+def test_sort_list_duplicates():
+    Solution = _load("sort_list", "排序链表.py").Solution
+    result = Solution().sortList(make_list([3, 1, 3, 2, 1]))
+    assert list_values(result) == [1, 1, 2, 3, 3]
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
