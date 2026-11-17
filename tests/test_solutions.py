@@ -2186,6 +2186,59 @@ def test_sort_list_duplicates():
     assert list_values(result) == [1, 1, 2, 3, 3]
 
 
+# ---------------------------------------------------------------- 49. 打家劫舍
+
+def test_house_robber_classic():
+    Solution = _load("house_robber", "打家劫舍.py").Solution
+    assert Solution().rob([1, 2, 3, 1]) == 4
+
+
+def test_house_robber_classic_second():
+    Solution = _load("house_robber", "打家劫舍.py").Solution
+    assert Solution().rob([2, 7, 9, 3, 1]) == 12
+
+
+def test_house_robber_single():
+    Solution = _load("house_robber", "打家劫舍.py").Solution
+    assert Solution().rob([5]) == 5
+
+
+def test_house_robber_two_houses():
+    Solution = _load("house_robber", "打家劫舍.py").Solution
+    assert Solution().rob([2, 7]) == 7
+    assert Solution().rob([7, 2]) == 7
+
+
+def test_house_robber_three_houses():
+    Solution = _load("house_robber", "打家劫舍.py").Solution
+    assert Solution().rob([2, 7, 9]) == 11
+
+
+def test_house_robber_all_equal():
+    Solution = _load("house_robber", "打家劫舍.py").Solution
+    assert Solution().rob([2, 2, 2, 2]) == 4
+
+
+def test_house_robber_zeros():
+    Solution = _load("house_robber", "打家劫舍.py").Solution
+    assert Solution().rob([0, 0, 0]) == 0
+
+
+def test_house_robber_increasing():
+    Solution = _load("house_robber", "打家劫舍.py").Solution
+    assert Solution().rob([1, 2, 3, 4, 5]) == 9
+
+
+def test_house_robber_cannot_take_adjacent():
+    Solution = _load("house_robber", "打家劫舍.py").Solution
+    assert Solution().rob([2, 1, 1, 2]) == 4
+
+
+def test_house_robber_max_constraint():
+    Solution = _load("house_robber", "打家劫舍.py").Solution
+    assert Solution().rob([400] * 100) == 20000
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():

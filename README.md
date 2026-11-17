@@ -56,6 +56,7 @@
 | 46 | [盛最多水的容器](https://leetcode.cn/problems/container-with-most-water/) | 中等 | 数组 · 双指针 / 贪心 | [📝](notes/46-盛最多水的容器.md) | [🐍](solutions/盛最多水的容器.py) |
 | 47 | [K 个一组翻转链表](https://leetcode.cn/problems/reverse-nodes-in-k-group/) | 困难 | 链表 · 递归 / 区间反转 | [📝](notes/47-K%20个一组翻转链表.md) | [🐍](solutions/K%20个一组翻转链表.py) |
 | 48 | [排序链表](https://leetcode.cn/problems/sort-list/) | 中等 | 链表 · 归并排序 / 分治 | [📝](notes/48-排序链表.md) | [🐍](solutions/排序链表.py) |
+| 49 | [打家劫舍](https://leetcode.cn/problems/house-robber/) | 中等 | 动态规划 · 线性 DP | [📝](notes/49-打家劫舍.md) | [🐍](solutions/打家劫舍.py) |
 
 ## 目录结构
 
@@ -110,7 +111,8 @@ Algorithm-Notes/
 │   ├── 45-三数之和.md
 │   ├── 46-盛最多水的容器.md
 │   ├── 47-K 个一组翻转链表.md
-│   └── 48-排序链表.md
+│   ├── 48-排序链表.md
+│   └── 49-打家劫舍.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -159,7 +161,8 @@ Algorithm-Notes/
 │   ├── 三数之和.py
 │   ├── 盛最多水的容器.py
 │   ├── K 个一组翻转链表.py
-│   └── 排序链表.py
+│   ├── 排序链表.py
+│   └── 打家劫舍.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```
