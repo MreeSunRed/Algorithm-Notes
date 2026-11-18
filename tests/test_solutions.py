@@ -150,6 +150,13 @@ def inorder_values(root):
     return inorder_values(root.left) + [root.val] + inorder_values(root.right)
 
 
+def preorder_values(root):
+    """返回二叉树的先序遍历值序列。"""
+    if root is None:
+        return []
+    return [root.val] + preorder_values(root.left) + preorder_values(root.right)
+
+
 def flattened_values(root):
     """按 right 指针读取展开后的链表，同时校验每个节点的 left 为空。"""
     values = []
@@ -2237,6 +2244,75 @@ def test_house_robber_cannot_take_adjacent():
 def test_house_robber_max_constraint():
     Solution = _load("house_robber", "打家劫舍.py").Solution
     assert Solution().rob([400] * 100) == 20000
+
+
+# ---------------------------------- 50. 从前序与中序遍历序列构造二叉树
+
+def test_build_tree_classic():
+    Solution = _load("build_tree",
+                     "从前序与中序遍历序列构造二叉树.py").Solution
+    root = Solution().buildTree([3, 9, 20, 15, 7], [9, 3, 15, 20, 7])
+    assert level_order(root) == [3, 9, 20, None, None, 15, 7]
+
+
+def test_build_tree_single():
+    Solution = _load("build_tree",
+                     "从前序与中序遍历序列构造二叉树.py").Solution
+    root = Solution().buildTree([-1], [-1])
+    assert level_order(root) == [-1]
+
+
+def test_build_tree_left_child_only():
+    Solution = _load("build_tree",
+                     "从前序与中序遍历序列构造二叉树.py").Solution
+    root = Solution().buildTree([1, 2], [2, 1])
+    assert level_order(root) == [1, 2]
+
+
+def test_build_tree_right_child_only():
+    Solution = _load("build_tree",
+                     "从前序与中序遍历序列构造二叉树.py").Solution
+    root = Solution().buildTree([1, 2], [1, 2])
+    assert level_order(root) == [1, None, 2]
+
+
+def test_build_tree_left_chain():
+    Solution = _load("build_tree",
+                     "从前序与中序遍历序列构造二叉树.py").Solution
+    root = Solution().buildTree([1, 2, 3], [3, 2, 1])
+    assert level_order(root) == [1, 2, None, 3]
+
+
+def test_build_tree_right_chain():
+    Solution = _load("build_tree",
+                     "从前序与中序遍历序列构造二叉树.py").Solution
+    root = Solution().buildTree([1, 2, 3], [1, 2, 3])
+    assert level_order(root) == [1, None, 2, None, 3]
+
+
+def test_build_tree_balanced():
+    Solution = _load("build_tree",
+                     "从前序与中序遍历序列构造二叉树.py").Solution
+    root = Solution().buildTree([1, 2, 4, 5, 3, 6, 7],
+                                [4, 2, 5, 1, 6, 3, 7])
+    assert level_order(root) == [1, 2, 3, 4, 5, 6, 7]
+
+
+def test_build_tree_arbitrary_values():
+    Solution = _load("build_tree",
+                     "从前序与中序遍历序列构造二叉树.py").Solution
+    root = Solution().buildTree([8, 5, 9, 7, 1], [5, 8, 7, 9, 1])
+    assert level_order(root) == [8, 5, 9, None, None, 7, 1]
+
+
+def test_build_tree_traversals_match_input():
+    Solution = _load("build_tree",
+                     "从前序与中序遍历序列构造二叉树.py").Solution
+    preorder = [3, 9, 20, 15, 7]
+    inorder = [9, 3, 15, 20, 7]
+    root = Solution().buildTree(preorder, inorder)
+    assert preorder_values(root) == preorder
+    assert inorder_values(root) == inorder
 
 
 # ------------------------------------------------------------------ 运行入口
