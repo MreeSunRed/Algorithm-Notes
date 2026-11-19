@@ -2315,6 +2315,42 @@ def test_build_tree_traversals_match_input():
     assert inorder_values(root) == inorder
 
 
+# ---------------------------------------------------------------- 51. 接雨水
+
+def test_trap_classic():
+    Solution = _load("trapping_rain_water", "接雨水.py").Solution
+    height = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]
+    assert Solution().trap(height) == 6
+
+
+def test_trap_two_walls():
+    Solution = _load("trapping_rain_water", "接雨水.py").Solution
+    assert Solution().trap([4, 2, 0, 3, 2, 5]) == 9
+
+
+def test_trap_single_basin():
+    Solution = _load("trapping_rain_water", "接雨水.py").Solution
+    assert Solution().trap([2, 1, 0, 2]) == 3
+    assert Solution().trap([2, 0, 2]) == 2
+
+
+def test_trap_empty_and_single():
+    Solution = _load("trapping_rain_water", "接雨水.py").Solution
+    assert Solution().trap([]) == 0
+    assert Solution().trap([1]) == 0
+
+
+def test_trap_monotonic():
+    Solution = _load("trapping_rain_water", "接雨水.py").Solution
+    assert Solution().trap([1, 2, 3]) == 0
+    assert Solution().trap([3, 2, 1]) == 0
+
+
+def test_trap_last_dip():
+    Solution = _load("trapping_rain_water", "接雨水.py").Solution
+    assert Solution().trap([5, 4, 1, 2]) == 1
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():

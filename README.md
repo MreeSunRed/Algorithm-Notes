@@ -58,6 +58,7 @@
 | 48 | [排序链表](https://leetcode.cn/problems/sort-list/) | 中等 | 链表 · 归并排序 / 分治 | [📝](notes/48-排序链表.md) | [🐍](solutions/排序链表.py) |
 | 49 | [打家劫舍](https://leetcode.cn/problems/house-robber/) | 中等 | 动态规划 · 线性 DP | [📝](notes/49-打家劫舍.md) | [🐍](solutions/打家劫舍.py) |
 | 50 | [从前序与中序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/) | 中等 | 树 · 递归 / 分治 | [📝](notes/50-从前序与中序遍历序列构造二叉树.md) | [🐍](solutions/从前序与中序遍历序列构造二叉树.py) |
+| 51 | [接雨水](https://leetcode.cn/problems/trapping-rain-water/) | 困难 | 数组 · 双指针 / 单调栈 | [📝](notes/51-接雨水.md) | [🐍](solutions/接雨水.py) |
 
 ## 目录结构
 
@@ -114,7 +115,8 @@ Algorithm-Notes/
 │   ├── 47-K 个一组翻转链表.md
 │   ├── 48-排序链表.md
 │   ├── 49-打家劫舍.md
-│   └── 50-从前序与中序遍历序列构造二叉树.md
+│   ├── 50-从前序与中序遍历序列构造二叉树.md
+│   └── 51-接雨水.md
 ├── solutions/           # 对应题目的 Python 实现
 │   ├── 两数之和.py
 │   ├── 最大子数组和.py
@@ -165,7 +167,8 @@ Algorithm-Notes/
 │   ├── K 个一组翻转链表.py
 │   ├── 排序链表.py
 │   ├── 打家劫舍.py
-│   └── 从前序与中序遍历序列构造二叉树.py
+│   ├── 从前序与中序遍历序列构造二叉树.py
+│   └── 接雨水.py
 └── tests/
     └── test_solutions.py   # 全部用例，可直接运行
 ```
