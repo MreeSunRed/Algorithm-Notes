@@ -2351,6 +2351,55 @@ def test_trap_last_dip():
     assert Solution().trap([5, 4, 1, 2]) == 1
 
 
+# ---------------------------------------------------- 52. 合并 K 个升序链表
+
+def test_merge_k_lists_classic():
+    Solution = _load("merge_k_lists", "合并 K 个升序链表.py").Solution
+    lists = [make_list([1, 4, 5]), make_list([1, 3, 4]),
+             make_list([2, 6])]
+    result = Solution().mergeKLists(lists)
+    assert list_values(result) == [1, 1, 2, 3, 4, 4, 5, 6]
+
+
+def test_merge_k_lists_empty():
+    Solution = _load("merge_k_lists", "合并 K 个升序链表.py").Solution
+    assert Solution().mergeKLists([]) is None
+
+
+def test_merge_k_lists_only_empty_lists():
+    Solution = _load("merge_k_lists", "合并 K 个升序链表.py").Solution
+    assert Solution().mergeKLists([None]) is None
+    assert Solution().mergeKLists([None, None]) is None
+
+
+def test_merge_k_lists_single():
+    Solution = _load("merge_k_lists", "合并 K 个升序链表.py").Solution
+    result = Solution().mergeKLists([make_list([1])])
+    assert list_values(result) == [1]
+
+
+def test_merge_k_lists_two():
+    Solution = _load("merge_k_lists", "合并 K 个升序链表.py").Solution
+    lists = [make_list([1, 2]), make_list([3, 4])]
+    result = Solution().mergeKLists(lists)
+    assert list_values(result) == [1, 2, 3, 4]
+
+
+def test_merge_k_lists_uneven():
+    Solution = _load("merge_k_lists", "合并 K 个升序链表.py").Solution
+    lists = [make_list([5]), make_list([1, 2]), make_list([3])]
+    result = Solution().mergeKLists(lists)
+    assert list_values(result) == [1, 2, 3, 5]
+
+
+def test_merge_k_lists_negative():
+    Solution = _load("merge_k_lists", "合并 K 个升序链表.py").Solution
+    lists = [make_list([-3, -1]), make_list([-2, 4]),
+             make_list([0])]
+    result = Solution().mergeKLists(lists)
+    assert list_values(result) == [-3, -2, -1, 0, 4]
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
