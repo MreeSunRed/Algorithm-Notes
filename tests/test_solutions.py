@@ -2400,6 +2400,60 @@ def test_merge_k_lists_negative():
     assert list_values(result) == [-3, -2, -1, 0, 4]
 
 
+# ---------------------------------------------------------------- 53. 完全平方数
+
+def test_num_squares_one():
+    Solution = _load("perfect_squares", "完全平方数.py").Solution
+    assert Solution().numSquares(1) == 1
+
+
+def test_num_squares_two_and_three():
+    Solution = _load("perfect_squares", "完全平方数.py").Solution
+    assert Solution().numSquares(2) == 2
+    assert Solution().numSquares(3) == 3
+
+
+def test_num_squares_perfect_squares():
+    Solution = _load("perfect_squares", "完全平方数.py").Solution
+    for n in (4, 9, 16):
+        assert Solution().numSquares(n) == 1
+
+
+def test_num_squares_seven():
+    Solution = _load("perfect_squares", "完全平方数.py").Solution
+    assert Solution().numSquares(7) == 4
+
+
+def test_num_squares_classic_twelve():
+    Solution = _load("perfect_squares", "完全平方数.py").Solution
+    assert Solution().numSquares(12) == 3
+
+
+def test_num_squares_classic_thirteen():
+    Solution = _load("perfect_squares", "完全平方数.py").Solution
+    assert Solution().numSquares(13) == 2
+
+
+def test_num_squares_forty_eight():
+    Solution = _load("perfect_squares", "完全平方数.py").Solution
+    assert Solution().numSquares(48) == 3
+
+
+def test_num_squares_thousand():
+    Solution = _load("perfect_squares", "完全平方数.py").Solution
+    assert Solution().numSquares(1000) == 2
+
+
+def test_num_squares_legendre_four():
+    Solution = _load("perfect_squares", "完全平方数.py").Solution
+    assert Solution().numSquares(9999) == 4
+
+
+def test_num_squares_max_constraint():
+    Solution = _load("perfect_squares", "完全平方数.py").Solution
+    assert Solution().numSquares(10000) == 1
+
+
 # ------------------------------------------------------------------ 运行入口
 
 def _run_all():
